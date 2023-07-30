@@ -5,32 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="assets/normalize/fridaylive_normalize.css">
 </head>
 <body>
   <header class="header">
-    <div class="wrapper">
-      <h1 class="logo">Brooklyn Public Library</h1>
+    <div class="wrapper header__wrapper">
+      <h1 class="logo-text">Brooklyn Public Library</h1>
       <nav class="header__navigation">
         <ul class="navigation">
-          <li>About</li>
-          <li>Favorites</li>
-          <li>Coffee Shop</li>
-          <li>Contacts</li>
-          <li>Library Card</li>
+          <li class="navigation__item"><a href="#about" class="navigation__link">About</a></li>
+          <li class="navigation__item"><a href="#favorites" class="navigation__link">Favorites</a></li>
+          <li class="navigation__item"><a href="#coffee-shop" class="navigation__link">Coffee Shop</a></li>
+          <li class="navigation__item"><a href="#contacts" class="navigation__link">Contacts</a></li>
+          <li class="navigation__item"><a href="#library" class="navigation__link">Library Card</a></li>
         </ul>
       </nav>
-      <div class="header__profile"></div>
+      <button class="button header__profile-button"></button>
     </div>
   </header>
-  <main>
-    <section class="welcome">
-      <div class="wrapper">
+  <main class="main">
+    <section class="welcome" id="welcome">
+      <div class="welcome__gradient">
         <div class="welcome__content">
-          <p>Welcome to the Brooklyn Library</p>
+          <div class="welcome__content-text-box">
+            <p class="welcome__content-text">Welcome<br> to the Brooklyn<br> Library</p>
+          </div>
         </div>
       </div>
     </section>
-    <section class="about">
+    <section class="about" id="about">
       <div class="wrapper">
         <h2 class="section-title">About</h2>
         <p>The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside</p>
@@ -43,15 +46,14 @@
             <img src="assets/images/about-carousel-5.jpg" alt="Column facade">
           </div>
           <div class="about__carousel-pagination">
-            <div class="btn_circle btn_circle_checked"></div>
-            <div class="btn_circle"></div>
-            <div class="btn_circle"></div>
+            <button class="button button_circle"></button>
+            <button class="button button_circle"></button>
+            <button class="button button_circle"></button>
           </div>
-
         </div>
       </div>
     </section>
-    <section class="favorites">
+    <section class="favorites" id="favorites">
       <div class="wrapper">
         <h2 class="section-title">Favorites</h2>
         <div class="favorites__carousel">
@@ -76,28 +78,28 @@
           </fieldset>
           <div class="favorites__carousel-cards">
             <div class="book-card">
-              <p class="book-advertisement">Staff Picks</p>
+              <p class="book-card__about-text">Staff Picks</p>
               <h3 class="book-title">The Book Eaters By Sunyi Dean</h3>
               <p class="book-about">An unusual sci-fi story about a book eater woman who tries desperately to save her dangerous mind-eater son from tradition and certain death. Complete with dysfunctional family values, light Sapphic romance, and a strong, complex protagonist. Not for the faint of heart.</p>
               <button class="button">Buy</button>
               <img src="assets/images/favorites-carousel-1.jpg" alt="book-1">
             </div>
             <div class="book-card">
-              <p class="book-advertisement">Staff Picks</p>
+              <p class="book-card__about-text">Staff Picks</p>
               <h3 class="book-title">Cackle By Rachel Harrison</h3>
               <p class="book-about">Are your Halloween movies of choice The Witches of Eastwick and Practical Magic? Look no further than here - where a woman recovering from a breakup moves to a quaint town in upstate New York and befriends a beautiful witch.</p>
               <button class="button">Buy</button>
               <img src="assets/images/favorites-carousel-2.jpg" alt="book-2">
             </div>
             <div class="book-card">
-              <p class="book-advertisement">Staff Picks</p>
+              <p class="book-card__about-text">Staff Picks</p>
               <h3 class="book-title">Dante: Poet of the Secular World By Erich Auerbach</h3>
               <p class="book-about">Auerbach's engaging book places the 'Comedy' within the tradition of epic, tragedy, and philosophy in general, arguing for Dante's uniqueness as one who raised the individual and his drama of soul into something of divine significance—an inspired introduction to Dante's main themes.</p>
               <button class="button">Buy</button>
               <img src="assets/images/favorites-carousel-3.jpg" alt="book-3">
             </div>
             <div class="book-card">
-              <p class="book-advertisement">Staff Picks</p>
+              <p class="book-card__about-text">Staff Picks</p>
               <h3 class="book-title">The Last Queen By Clive Irving</h3>
               <p class="book-about">A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved and thrived as the modern world has changed around them.  </p>
               <button class="button">Buy</button>
@@ -107,7 +109,7 @@
         </div>
       </div>
     </section>
-    <section class="coffee-shop">
+    <section class="coffee-shop" id="coffee-shop">
       <div class="wrapper">
         <h2 class="section-title">Coffee Shop</h2>
         <div class="coffee-shop__content">
@@ -183,7 +185,7 @@
         </div>
       </div>
     </section>
-    <section class="contacts">
+    <section class="contacts" id="contacts">
       <div class="wrapper">
         <h2 class="section-title">Our Contacts</h2>
         <div class="contacts__content">
@@ -203,7 +205,7 @@
         </div>
       </div>
     </section>
-    <section class="library-card">
+    <section class="library-card" id="library-card">
       <div class="wrapper">
         <h2 class="section-title">Digital Library Cards</h2>
         <div class="library-card__content">
