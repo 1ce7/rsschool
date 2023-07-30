@@ -44,6 +44,14 @@ body {
 .welcome {
   background-image: url(assets/images/welcome-bg.png);
   height: 600px;
+  margin-top: -1px;
+}
+.button-box {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  width: 26px;
+  height: 26px;
 }
 .welcome__gradient {
   background: linear-gradient(180deg, #0C0C0E 0%, #0C0C0E 0.01%, rgba(18, 18, 21, 0.10) 100%);
@@ -60,7 +68,38 @@ body {
 .header__navigation {
   margin-left: auto;
 }
+.about {
+  padding: 0 1.39vw 0  1.39vw;
+}
+.about__content-text {
+  color: #000;
+  text-align: center;
+  font-family: "Inter";
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 4rem; /* 200% */
+}
+.about__carousel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.about__carousel-images {
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  gap: 1.7vw;
+}
+.about__section-title {
+  margin: 0 0 40px 0;
+}
 .section-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.section-title__text {
   color: #0C0C0E;
   font-family: "Forum", Garamond, serif;
   font-size: 4rem;
@@ -69,7 +108,13 @@ body {
   line-height: 4rem; /* 100% */
   letter-spacing: 0.2rem;
   text-transform: capitalize;
-  text-align: center;
+  margin: 20px 0;
+}
+.section-title__line {
+  width: 50px;
+  height: 1px;
+  flex-shrink: 0;
+  background: #0C0C0E;
 }
 .logo-text {
   color: #FFF;
@@ -80,7 +125,6 @@ body {
   line-height: 5rem; /* 166.667% */
   letter-spacing: 0.06rem;
   transition: 0.3s;
-
 }
 .logo-text:hover {
   color: #BB945F;
@@ -142,13 +186,20 @@ body {
   display: none;
 }
 .about__carousel-pagination {
+  align-items: center;
+  justify-content: center;
+  margin-top: 35px;
   display: flex;
+  width: 68px;
+}
+.about__carousel-pagination .button_circle:hover {
+  background-color: #BB945F;
 }
 .button_circle {
   background-color: black;
-  width: 16px;
-  height: 16px;
   border-radius: 50%;
+  border: 5px solid white;
+  padding: 8px;
 }
 .button {
   transition: 0.3s;
@@ -225,4 +276,7 @@ body {
 .footer__content-rss {
   display: flex;
   justify-content: space-between;
+}
+.about__carousel-pagination button:nth-child(1) {
+  background-color: #BB945F;
 }
