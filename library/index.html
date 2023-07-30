@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="wrapper">
+      <h1 class="logo">Brooklyn Public Library</h1>
+      <nav class="header__navigation">
+        <ul class="navigation">
+          <li>About</li>
+          <li>Favorites</li>
+          <li>Coffee Shop</li>
+          <li>Contacts</li>
+          <li>Library Card</li>
+        </ul>
+      </nav>
+      <div class="header__profile"></div>
+    </div>
+  </header>
+  <main>
+    <section class="welcome">
+      <div class="wrapper">
+        <div class="welcome__content">
+          <p>Welcome to the Brooklyn Library</p>
+        </div>
+      </div>
+    </section>
+    <section class="about">
+      <div class="wrapper">
+        <h2 class="section-title">About</h2>
+        <p>The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside</p>
+        <div class="about__carousel">
+          <div class="about__carousel-images">
+            <img src="assets/images/about-carousel-1.jpg" alt="Rows of bookshelves">
+            <img src="assets/images/about-carousel-2.jpg" alt="Busts">
+            <img src="assets/images/about-carousel-3.jpg" alt="Round bookcases">
+            <img src="assets/images/about-carousel-4.jpg" alt="Ladder">
+            <img src="assets/images/about-carousel-5.jpg" alt="Column facade">
+          </div>
+          <div class="about__carousel-pagination">
+            <div class="btn_circle btn_circle_checked"></div>
+            <div class="btn_circle"></div>
+            <div class="btn_circle"></div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <section class="favorites">
+      <div class="wrapper">
+        <h2 class="section-title">Favorites</h2>
+        <div class="favorites__carousel">
+          <fieldset class="favorites__carousel-pagination">
+            <legend>Pick favorites of season</legend>
+            <div>
+              <input type="radio" id="winter" name="season" value="winter" checked>
+              <label for="winter">Winter</label>
+            </div>
+            <div>
+              <input type="radio" id="spring" name="season" value="spring">
+              <label for="spring">Spring</label>
+            </div>
+            <div>
+              <input type="radio" id="summer" name="season" value="summer">
+              <label for="summer">Summer</label>
+            </div>
+            <div>
+              <input type="radio" id="autumn" name="season" value="autumn">
+              <label for="autumn">Autumn</label>
+            </div>
+          </fieldset>
+          <div class="favorites__carousel-cards">
+            <div class="book-card">
+              <p class="book-advertisement">Staff Picks</p>
+              <h3 class="book-title">The Book Eaters By Sunyi Dean</h3>
+              <p class="book-about">An unusual sci-fi story about a book eater woman who tries desperately to save her dangerous mind-eater son from tradition and certain death. Complete with dysfunctional family values, light Sapphic romance, and a strong, complex protagonist. Not for the faint of heart.</p>
+              <button class="button">Buy</button>
+              <img src="assets/images/favorites-carousel-1.jpg" alt="book-1">
+            </div>
+            <div class="book-card">
+              <p class="book-advertisement">Staff Picks</p>
+              <h3 class="book-title">Cackle By Rachel Harrison</h3>
+              <p class="book-about">Are your Halloween movies of choice The Witches of Eastwick and Practical Magic? Look no further than here - where a woman recovering from a breakup moves to a quaint town in upstate New York and befriends a beautiful witch.</p>
+              <button class="button">Buy</button>
+              <img src="assets/images/favorites-carousel-2.jpg" alt="book-2">
+            </div>
+            <div class="book-card">
+              <p class="book-advertisement">Staff Picks</p>
+              <h3 class="book-title">Dante: Poet of the Secular World By Erich Auerbach</h3>
+              <p class="book-about">Auerbach's engaging book places the 'Comedy' within the tradition of epic, tragedy, and philosophy in general, arguing for Dante's uniqueness as one who raised the individual and his drama of soul into something of divine significance—an inspired introduction to Dante's main themes.</p>
+              <button class="button">Buy</button>
+              <img src="assets/images/favorites-carousel-3.jpg" alt="book-3">
+            </div>
+            <div class="book-card">
+              <p class="book-advertisement">Staff Picks</p>
+              <h3 class="book-title">The Last Queen By Clive Irving</h3>
+              <p class="book-about">A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved and thrived as the modern world has changed around them.  </p>
+              <button class="button">Buy</button>
+              <img src="assets/images/favorites-carousel-4.jpg" alt="book-4">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="coffee-shop">
+      <div class="wrapper">
+        <h2 class="section-title">Coffee Shop</h2>
+        <div class="coffee-shop__content">
+          <p class="coffe-shop__discription">In our library, we have of cozy coffee shop, welcoming in customers with frothy cappuccinos and friendly conversation. You can get a favorite book and read in coffee shop. Our barista to cook you best coffee, and also you can try desserts from bakery.</p>
+          <div class="coffee-shop__menu">
+            <ul class="coffee-shop__drinks">
+              <p class="coffee-shop__drinks-title">Coffee & Tea</p>
+              <li class="coffee-shop__item">
+                <p class="coffee-shop__item-name">Cold Brew Coffee</p>
+                <div class="coffee-shop__item-line"></div>
+                <p class="coffee-shop__item-price">$3</p>
+              </li>
+              <li class="coffee-shop__item">
+                <p class="coffee-shop__item-name">Cold Brew Coffee</p>
+                <div class="coffee-shop__item-line"></div>
+                <p class="coffee-shop__item-price">$3</p>
+              </li>
+              <li class="coffee-shop__item">
+                <p class="coffee-shop__item-name">Cold Brew Coffee</p>
+                <div class="coffee-shop__item-line"></div>
+                <p class="coffee-shop__item-price">$3</p>
+              </li>
+              <li class="coffee-shop__item">
+                <p class="coffee-shop__item-name">Cold Brew Coffee</p>
+                <div class="coffee-shop__item-line"></div>
+                <p class="coffee-shop__item-price">$3</p>
+              </li>
+              <li class="coffee-shop__item">
+                <p class="coffee-shop__item-name">Cold Brew Coffee</p>
+                <div class="coffee-shop__item-line"></div>
+                <p class="coffee-shop__item-price">$3</p>
+              </li>
+              <li class="coffee-shop__item">
+                <p class="coffee-shop__item-name">Cold Brew Coffee</p>
+                <div class="coffee-shop__item-line"></div>
+                <p class="coffee-shop__item-price">$3</p>
+              </li>
+            </ul>
+            <ul class="coffee-shop__desserts">
+              <p class="coffee-shop__drinks-title">Desserts & Cakes</p>
+              <li class="coffee-shop__item">
+                <p class="coffee-shop__item-name">Cold Brew Coffee</p>
+                <div class="coffee-shop__item-line"></div>
+                <p class="coffee-shop__item-price">$3</p>
+              </li>
+              <li class="coffee-shop__item">
+                <p class="coffee-shop__item-name">Cold Brew Coffee</p>
+                <div class="coffee-shop__item-line"></div>
+                <p class="coffee-shop__item-price">$3</p>
+              </li>
+              <li class="coffee-shop__item">
+                <p class="coffee-shop__item-name">Cold Brew Coffee</p>
+                <div class="coffee-shop__item-line"></div>
+                <p class="coffee-shop__item-price">$3</p>
+              </li>
+              <li class="coffee-shop__item">
+                <p class="coffee-shop__item-name">Cold Brew Coffee</p>
+                <div class="coffee-shop__item-line"></div>
+                <p class="coffee-shop__item-price">$3</p>
+              </li>
+              <li class="coffee-shop__item">
+                <p class="coffee-shop__item-name">Cold Brew Coffee</p>
+                <div class="coffee-shop__item-line"></div>
+                <p class="coffee-shop__item-price">$3</p>
+              </li>
+              <li class="coffee-shop__item">
+                <p class="coffee-shop__item-name">Cold Brew Coffee</p>
+                <div class="coffee-shop__item-line"></div>
+                <p class="coffee-shop__item-price">$3</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="contacts">
+      <div class="wrapper">
+        <h2 class="section-title">Our Contacts</h2>
+        <div class="contacts__content">
+          <div class="contacts__info">
+            <div class="contacts__info-phones">
+              <h4>For all Library inquiries:</h4>
+              <p>Please call (617) 730-2370</p>
+              <p>For TTY service, please call (617) 730-2370</p>
+              <p>Putterham Library: (617) 730-2385</p>
+            </div>
+            <div class="contacts__info-staff">
+              <h4>Senior Staff</h4>
+              <p>Library Director: <h4>Amanda Hirst</h4></p>
+            </div>
+          </div>
+          <img class="contacts__map" src="assets/images/contacts-map-1.jpg" alt="map">
+        </div>
+      </div>
+    </section>
+    <section class="library-card">
+      <div class="wrapper">
+        <h2 class="section-title">Digital Library Cards</h2>
+        <div class="library-card__content">
+          <div class="library-card__find-card">
+            <p class="library-card__find-card-title">Find your Library card</p>
+            <form action="" class="search-form">
+              <div class="library-card__find-card-bg">
+                <p class="search-form__title">Brooklyn Public Library</p>
+                <div class="search-form__name">
+                  <input type="text" name="name" id="name" placeholder="Reader's name" pattern="[\w\-]+" required>
+                </div>
+                <div class="search-form__number">
+                  <input type="text" name="number" id="number" placeholder="Card number" pattern="[\w\-]+" required>
+                </div>
+              </div>
+              <div class="search-form__button">
+                <button class="button" type="submit">Check the card</button>
+              </div>
+            </form>
+          </div>
+          <div class="library-card__get-card">
+            <p class="library-card__get-card-title">Get a reader card</p>
+            <p class="library-card__get-card-text">You will be able to see a reader card after logging into account or you can register a new account</p>
+            <div class="library-card__get-card-buttons">
+              <button class="button">Sign Up</button>
+              <button class="button">Log in</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="footer__content">
+      <div class="footer__content-library">
+        <div class="footer__requisites">
+          <p class="footer__address">286 Cadman Plaza, New York, NY 11238, United States</p>
+          <div class="footer__social-media">
+            <div class="icon-twitter"></div>
+            <div class="icon-instagram"></div>
+            <div class="icon-facebook"></div>
+          </div>
+        </div>
+        <div class="footer__library-open">
+          <div>
+            <p class="footer__library-open-days">Mon - Fri</p>
+            <p class="footer__library-open-hours">08:00 am - 07:00 pm</p>
+          </div>
+          <div>
+            <p class="footer__library-open-days">Sat - Sun</p>
+            <p class="footer__library-open-hours">10:00 am - 06:00 pm</p>
+          </div>
+        </div>
+      </div>
+      <div class="footer__line"></div>
+      <div class="footer__content-rss">
+        <p class="footer__year">2023</p>
+        <p class="footer__rss">The Rolling Scopes School</p>
+        <p class="footer__developer">Sergey Savchenko</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

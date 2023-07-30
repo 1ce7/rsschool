@@ -1,0 +1,77 @@
+.about__carousel-images img:nth-child(4) {
+  display: none;
+}
+.about__carousel-images img:nth-child(5) {
+  display: none;
+}
+.about__carousel-pagination {
+  display: flex;
+}
+.btn_circle {
+  background-color: black;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+}
+.btn_circle_checked {
+  background-color: #BB945F;
+}
+.coffee-shop__item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.coffee-shop__item-line {
+  height: 1px;
+  width: 100px;
+  background-color: #BB945F;
+}
+.coffee-shop__menu {
+  display: flex;
+  justify-content: space-between;
+}
+.contacts__content {
+  display: flex;
+  justify-content: space-between;
+}
+.library-card__content {
+  display: flex;
+  justify-content: space-between;
+}
+.library-card__find-card-bg {
+  background: #BB945F;
+}
+.footer {
+  background-color: black;
+  color: white;
+}
+.icon-twitter {
+  background-image: url(assets/icons/footer-twitter.svg);
+  width: 24px;
+  height: 24px;
+}
+.icon-instagram {
+  background-image: url(assets/icons/footer-instagram.svg);
+  width: 24px;
+  height: 24px;
+}
+.icon-facebook {
+  background-image: url(assets/icons/footer-facebook.svg);
+  width: 24px;
+  height: 24px;
+}
+.footer__social-media {
+  display: flex;
+}
+.footer__content-library {
+  display: flex;
+  justify-content: space-between;
+}
+.footer__line {
+  height: 1px;
+  background-color: white;
+}
+.footer__content-rss {
+  display: flex;
+  justify-content: space-between;
+}
