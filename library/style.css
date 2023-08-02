@@ -40,7 +40,7 @@ body {
   text-transform: uppercase;
 }
 .header {
-  padding: 0 1.38888888889vw 0  1.38888888889vw;
+  padding:0 20px;
   background: #0C0C0E;
 }
 .welcome__content {
@@ -69,7 +69,7 @@ body {
   justify-content: space-between;
 }
 .navigation__item {
-  padding: 0 1.0415vw;
+  padding: 0 15px;
 }
 .header__navigation {
   margin-left: auto;
@@ -92,7 +92,7 @@ body {
   flex-wrap: wrap;
   display: flex;
   justify-content: center;
-  gap: 1.73611111111vw;
+  gap: 25px;
 }
 .section-title {
   display: flex;
@@ -308,7 +308,7 @@ body {
 .header__profile-button {
   transition: 0.3s;
   display: block;
-  margin-left: 1.74vw;
+  margin-left: 25px;
   background-color: transparent;
   background-image: url(assets/icons/header-profile.svg);
   border: none;
@@ -416,7 +416,6 @@ book-card__button_disabled:hover {
 }
 .favorites__carousel-cards {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
   gap: 40px 260px;
 }
