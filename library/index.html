@@ -11,7 +11,7 @@
 <body>
   <header class="header">
     <div class="wrapper header__wrapper">
-      <h1 class="logo-text">Brooklyn Public Library</h1>
+      <h1 class="h1 logo">Brooklyn Public Library</h1>
       <nav class="header__navigation">
         <ul class="navigation">
           <li class="navigation__item"><a href="#about" class="navigation__link">About</a></li>
@@ -21,73 +21,91 @@
           <li class="navigation__item"><a href="#library-card" class="navigation__link">Library Card</a></li>
         </ul>
       </nav>
-      <button class="header__profile-button"></button>
+      <div class="header__profile-button">
+        <button class="profile-button button_circled">
+          <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28" fill="none">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M28 14C28 21.732 21.732 28 14 28C6.26801 28 0 21.732 0 14C0 6.26801 6.26801 0 14 0C21.732 0 28 6.26801 28 14ZM18.6667 7.77778C18.6667 10.3551 16.5774 12.4444 14.0001 12.4444C11.4227 12.4444 9.33339 10.3551 9.33339 7.77778C9.33339 5.20045 11.4227 3.11111 14.0001 3.11111C16.5774 3.11111 18.6667 5.20045 18.6667 7.77778ZM19.4998 16.2781C20.9584 17.7367 21.7778 19.715 21.7778 21.7778H14L6.22225 21.7778C6.22225 19.715 7.0417 17.7367 8.50031 16.2781C9.95893 14.8194 11.9372 14 14 14C16.0628 14 18.0411 14.8194 19.4998 16.2781Z" fill="white"/>
+          </svg>
+        </button>
+      </div>
+      <div class="header__burger">
+        <div class="burger-button">
+          <div class="burger-button__line"></div>
+          <div class="burger-button__line"></div>
+          <div class="burger-button__line"></div>
+        </div>
+      </div>
+      <ul class="burger-menu">
+        <li class="burger-menu__item"><a href="#about" class="navigation__link">About</a></li>
+        <li class="burger-menu__item"><a href="#favorites" class="navigation__link">Favorites</a></li>
+        <li class="burger-menu__item"><a href="#coffee-shop" class="navigation__link">Coffee Shop</a></li>
+        <li class="burger-menu__item"><a href="#contacts" class="navigation__link">Contacts</a></li>
+        <li class="burger-menu__item"><a href="#library-card" class="navigation__link">Library Card</a></li>
+      </ul>
     </div>
   </header>
   <main class="main">
-    <section class="section welcome__section" id="welcome">
-      <div class="welcome__gradient">
-        <div class="welcome__content">
-          <div class="welcome__content-text-box">
-            <h2 class="welcome__content-text">Welcome<br> to the Brooklyn<br> Library</h2>
-          </div>
+    <section class="section welcome" id="welcome">
+        <div class="wrapper welcome__wrapper">
+            <h2 class="h2 welcome__title">Welcome<br> to the Brooklyn<br> Library</h2>
         </div>
-      </div>
     </section>
-    <section class="section about__section" id="about">
+    <section class="section about" id="about">
       <div class="wrapper about__wrapper">
-        <div class="section-title about__section-title">
-          <h2 class="section-title__text">About</h2>
-          <div class="section-title__line"></div>
-        </div>
-        <div class="about__content">
-          <p class="about__content-text">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside</p>
-          <div class="about__carousel">
-            <div class="about__carousel-images">
+          <div class="section-title">
+            <h2 class="h2 section-title__text">About</h2>
+            <div class="section-title__line"></div>
+          </div>
+          <p class="about__text">The Brooklyn Library is a free workspace, a large number of books and a cozy coffee shop inside</p>
+          <div class="images-slider">
+            <div class="images-slider__images">
               <img src="assets/images/about-carousel-1.jpg" alt="Rows of bookshelves">
               <img src="assets/images/about-carousel-2.jpg" alt="Busts">
               <img src="assets/images/about-carousel-3.jpg" alt="Round bookcases">
               <img src="assets/images/about-carousel-4.jpg" alt="Ladder">
               <img src="assets/images/about-carousel-5.jpg" alt="Column facade">
             </div>
-            <div class="about__carousel-pagination">
-              <button class="button_circle"></button>
-              <button class="button_circle"></button>
-              <button class="button_circle"></button>
+            <div class="images-slider__radio-buttons">
+              <input type="radio" id="slide1" name="slide" checked>
+              <label for="slide1"></label>
+              <input type="radio" id="slide2" name="slide">
+              <label for="slide2"></label>
+              <input type="radio" id="slide3" name="slide">
+              <label for="slide3"></label>
             </div>
           </div>
-        </div>
       </div>
     </section>
-    <section class="section favorites__section" id="favorites">
-      <div class="wrapper">
+    <section class="section favorites" id="favorites">
+      <div class="wrapper favorits__wrapper">
         <div class="section-title">
           <h2 class="section-title__text">Favorites</h2>
           <div class="section-title__line"></div>
         </div>
-        <div class="favorites__carousel">
-          <div class="favorites__carousel-pagination">
-            <p class="favorites__carousel-pagination-title">Pick favorites of season</p>
-            <div class="favorites__carousel-pagination-inputs">
-              <div class="favorites__carousel-pagination-input">
-                <input type="radio" id="winter" name="season" value="winter" checked>
-                <label for="winter">Winter</label>
-              </div>
-              <div class="favorites__carousel-pagination-input">
-                <input type="radio" id="spring" name="season" value="spring">
-                <label for="spring">Spring</label>
-              </div>
-              <div class="favorites__carousel-pagination-input">
-                <input type="radio" id="summer" name="season" value="summer">
-                <label for="summer">Summer</label>
-              </div>
-              <div class="favorites__carousel-pagination-input">
-                <input type="radio" id="autumn" name="season" value="autumn">
-                <label for="autumn">Autumn</label>
-              </div>
-            </div>
+        <div class="books-slider">
+          <p class="books-slider__title">Pick favorites of season</p>
+          <div class="books-slider__radio-buttons">
+            <label class="books-slider__label" for="winter">
+              <input class="books-slider__radio" type="radio" id="winter" name="season" value="winter" checked>
+              <span class="books-slider__label-text">Winter</span>
+            </label>
+
+            <label class="books-slider__label" for="spring">
+              <input class="books-slider__radio" type="radio" id="spring" name="season" value="spring">
+              <span class="books-slider__label-text">Spring</span>
+            </label>
+
+            <label class="books-slider__label" for="summer">
+              <input class="books-slider__radio" type="radio" id="summer" name="season" value="summer">
+              <span class="books-slider__label-text">Summer</span>
+            </label>
+
+            <label class="books-slider__label" for="autumn">
+              <input class="books-slider__radio" type="radio" id="autumn" name="season" value="autumn">
+              <span class="books-slider__label-text">Autumn</span>
+            </label>
           </div>
-          <div class="favorites__carousel-cards">
+          <div class="books-slider__book-cards">
             <div class="book-card">
               <div class="book-card__info">
                 <p class="book-card__info-text">Staff Picks</p>
@@ -131,21 +149,21 @@
               <h3 class="book-card__name">The Last Queen</h3>
               <p class="book-card__author">By Clive Irving</p>
               <p class="book-card__about">A timely and revelatory new biography of Queen Elizabeth (and her family) exploring how the Windsors have evolved and thrived as the modern world has changed around them.</p>
-              <button class="book-card__button_disabled" disabled>Own</button>
+              <button class="button book-card__button book-card__button_disabled" disabled>Own</button>
               <img class="book-card__img" src="assets/images/favorites-carousel-4.jpg" alt="book-4">
             </div>
           </div>
         </div>
       </div>
     </section>
-    <section class="section coffee-shop__section" id="coffee-shop">
+    <section class="section coffee-shop" id="coffee-shop">
       <div class="wrapper">
         <div class="section-title">
           <h2 class="section-title__text">Coffee-shop</h2>
           <div class="section-title__line"></div>
         </div>
         <div class="coffee-shop__content">
-          <p class="coffee-shop__description">In our library, we have of cozy coffee shop, welcoming in customers with frothy cappuccinos and friendly conversation. You can get a favorite book and read in coffee shop. Our barista to cook you best coffee, and also you can try desserts from bakery.</p>
+          <p class="coffee-shop__text">In our library, we have of cozy coffee shop, welcoming in customers with frothy cappuccinos and friendly conversation. You can get a favorite book and read in coffee shop. Our barista to cook you best coffee, and also you can try desserts from bakery.</p>
           <div class="coffee-shop__menu">
             <ul class="coffee-shop__drinks">
               <li class="coffee-shop__drinks-title">Coffee & Tea</li>
@@ -217,7 +235,7 @@
         </div>
       </div>
     </section>
-    <section class="section contacts__section" id="contacts">
+    <section class="section contacts" id="contacts">
       <div class="wrapper">
         <div class="section-title">
           <h2 class="section-title__text">Our Contacts</h2>
@@ -228,8 +246,8 @@
             <div class="contacts__info-phones">
               <h4 class="contacts__info-phones-title">For all Library inquiries:</h4>
               <p>Please call (617) 730-2370</p>
-              <p>For TTY service, please call <a href="tel:+6177302370" class="tel">(617) 730-2370</a></p>
-              <p>Putterham Library:<a href="tel:+6177302370" class="tel">(617) 730-2370</a></p>
+              <p>For TTY service, please call&nbsp;<a href="tel:+6177302370" class="tel">(617)&nbsp;730-2370</a></p>
+              <p>Putterham Library:&nbsp;<a href="tel:+6177302370" class="tel">(617)&nbsp;730-2370</a></p>
             </div>
             <div class="contacts__info-staff">
               <h4 class="contacts__info-staff-title">Senior Staff</h4>
@@ -240,7 +258,7 @@
         </div>
       </div>
     </section>
-    <section class="section library-card__section" id="library-card">
+    <section class="section library-card" id="library-card">
       <div class="wrapper">
         <div class="section-title library-card__section-title">
           <h2 class="section-title__text">Digital Library Cards</h2>
@@ -304,5 +322,6 @@
       </div>
     </div>
   </footer>
+  <script src="script.js"></script>
 </body>
 </html>
