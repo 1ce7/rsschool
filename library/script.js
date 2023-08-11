@@ -2,6 +2,7 @@ const burgerButton = document.querySelector('.burger-button');
 const burgerMenu = document.querySelector('.burger-menu');
 const burgerLinks = document.querySelectorAll('.burger-menu__item');
 const bookCardButtons = document.querySelectorAll('.book-card__button');
+const burgerMenuContainer = document.querySelector('.burger-menu__container');
 
 burgerButton.addEventListener('click', () => {
   toggleMenu();
@@ -15,18 +16,18 @@ burgerLinks.forEach((link) => {
 
 document.addEventListener('click', (event) => {
   const targetElement = event.target;
-  if (!burgerMenu.contains(targetElement) && !burgerButton.contains(targetElement)) {
+  if (!burgerMenuContainer.contains(targetElement) && !burgerButton.contains(targetElement)) {
     closeMenu();
   }
 });
 
 function toggleMenu() {
-  burgerMenu.classList.toggle('active');
+  burgerMenuContainer.classList.toggle('active');
   burgerButton.classList.toggle('active');
 }
 
 function closeMenu() {
-  burgerMenu.classList.remove('active');
+  burgerMenuContainer.classList.remove('active');
   burgerButton.classList.remove('active');
 }
 
