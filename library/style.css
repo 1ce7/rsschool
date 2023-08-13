@@ -73,9 +73,6 @@ body {
   font-size: 20px;
   font-weight: 400;
 }
-.navigation__link:hover {
-  color: #BB945F;
-}
 .button {
   transition: 0.3s;
   padding: 9px 27px;
@@ -91,10 +88,6 @@ body {
   border: 1px solid #0C0C0E;
   background: transparent;
 }
-.button:hover {
-  background: #BB945F;
-  border: 1px solid #BB945F;
-}
 .button_circled {
   border-radius: 50%;
 }
@@ -107,9 +100,6 @@ body {
 .profile-button__icon {
   transition: .3s;
   fill: white;
-}
-.profile-button:hover .profile-button__icon {
-  fill: #BB945F;
 }
 .about {
   padding-bottom: 35px;
@@ -154,9 +144,6 @@ body {
   letter-spacing: 0.06rem;
   transition: .3s;
 }
-.h1:hover {
-  color: #BB945F;
-}
 .navigation {
   display: flex;
 }
@@ -184,12 +171,6 @@ body {
   background-color: black;
   border-radius: 50%;
   transition: background-color .3s;
-}
-input[type="radio"], label:hover {
-  cursor: pointer;
-}
-.images-slider__radio-buttons input[type="radio"]:hover {
-  background-color: #BB945F;
 }
 .images-slider__radio-buttons input[type="radio"]:checked {
   background-color: #BB945F;
@@ -244,9 +225,6 @@ input[type="radio"], label:hover {
 .books-slider__label:has(.books-slider__radio:checked) {
   font-weight: 700;
 }
-.books-slider__label:hover {
-  font-weight: 700;
-}
 .books-slider__radio::before {
   content: "";
   position: absolute;
@@ -293,9 +271,6 @@ input[type="radio"], label:hover {
   border: 1px solid #BB945F;
   color: #BB945F;
   padding: 9px 25px;
-}
-.book-card__button_disabled:hover {
-  background: transparent;
 }
 .book-card__about {
   width: 357px;
@@ -388,9 +363,6 @@ input[type="radio"], label:hover {
   display: flex;
   justify-content: center;
 }
-.about__carousel-pagination .button_circle:hover {
-  background-color: #BB945F;
-}
 .coffee-shop__item {
   display: flex;
   justify-content: space-between;
@@ -410,10 +382,6 @@ input[type="radio"], label:hover {
   background-color: black;
   color: white;
   padding: 0 20px;
-}
-.footer a:hover {
-  color: #BB945F;
-  transition: .3s;
 }
 .icon-twitter {
   background-image: url(assets/icons/footer-twitter.svg);
@@ -444,10 +412,6 @@ input[type="radio"], label:hover {
 }
 .about__carousel-pagination button:nth-child(1) {
   background-color: #BB945F;
-}
-book-card__button_disabled:hover {
-  color: #BB945F;
-  background-color: white;
 }
 .favorites__carousel-pagination {
   margin: 4rem 0;
@@ -566,9 +530,6 @@ book-card__button_disabled:hover {
 .contacts__info a {
   color: black;
   transition: .3s;
-}
-.contacts__info a:hover {
-  color: #BB945F;
 }
 .contacts__info-phones-title {
   margin: 0 0 40px 0;
@@ -732,14 +693,10 @@ book-card__button_disabled:hover {
   margin: 0 0 0 40px;
   z-index: 1;
 }
-.burger-button:hover .burger-button__line {
-  background-color: #BB945F;
-}
 .burger-button {
   cursor: pointer;
   display: flex;
   flex-direction: column;
-
 }
 .burger-button__line {
   background-color: white;
@@ -750,15 +707,15 @@ book-card__button_disabled:hover {
 }
 .burger-button.active .burger-button__line:nth-child(1) {
   transform: rotate(-45deg) translate(-4px, 12px);
-  background-color: #BB945F;
+  background-color: #ebc48d;
 }
 .burger-button.active .burger-button__line:nth-child(2) {
   opacity: 0;
-  background-color: #BB945F;
+  background-color: #ebc48d;
 }
 .burger-button.active .burger-button__line:nth-child(3) {
   transform: rotate(45deg) translate(-2px, -11px);
-  background-color: #BB945F;
+  background-color: #ebc48d;
 }
 .burger-menu {
   display: flex;
@@ -804,6 +761,9 @@ book-card__button_disabled:hover {
   }
   .images-slider__arrow {
     margin: 35px 0 0 0;
+    display: flex;
+    padding: 10px;
+    cursor: pointer;
   }
   .images-slider__images img:nth-child(2) {
     display: none;
@@ -889,7 +849,99 @@ book-card__button_disabled:hover {
   .contacts__map {
     width: 100%;
   }
-  .images-slider__images {
-    /* gap: 20%; */
+}
+@media (hover: hover) {
+  .navigation__link:hover {
+    color: #BB945F;
   }
+  .button:hover {
+    background: #BB945F;
+    border: 1px solid #BB945F;
+  }
+  .profile-button:hover .profile-button__icon {
+    fill: #BB945F;
+  }
+  .h1:hover {
+    color: #BB945F;
+  }
+  input[type="radio"], label:hover {
+    cursor: pointer;
+  }
+  .images-slider__radio-buttons input[type="radio"]:hover {
+    background-color: #BB945F;
+  }
+  .books-slider__label:hover {
+    font-weight: 700;
+  }
+  .book-card__button_disabled:hover {
+    background: transparent;
+  }
+  .about__carousel-pagination .button_circle:hover {
+    background-color: #BB945F;
+  }
+  .footer a:hover {
+    color: #BB945F;
+    transition: .3s;
+  }
+  .contacts__info a:hover {
+    color: #BB945F;
+  }
+  book-card__button_disabled:hover {
+    color: #BB945F;
+    background-color: white;
+  }
+  .burger-button:hover .burger-button__line {
+    background-color: #BB945F;
+  }
+  .images-slider__arrow:hover .arrow {
+    border-color: #BB945F;
+    transition: .3s;
+  }
+}
+
+.navigation__link:active {
+  color: #ebc48d;
+}
+.button:active {
+  background: #ebc48d;
+  border: 1px solid #ebc48d;
+}
+.profile-button:active .profile-button__icon {
+  fill: #ebc48d;
+}
+.h1:active {
+  color: #ebc48d;
+}
+input[type="radio"], label:active {
+  cursor: pointer;
+}
+.images-slider__radio-buttons input[type="radio"]:active {
+  background-color: #ebc48d;
+}
+.books-slider__label:active {
+  font-weight: 700;
+}
+.book-card__button_disabled:active {
+  background: transparent;
+}
+.about__carousel-pagination .button_circle:active {
+  background-color: #ebc48d;
+}
+.footer a:active {
+  color: #ebc48d;
+  transition: .3s;
+}
+.contacts__info a:active {
+  color: #ebc48d;
+}
+book-card__button_disabled:active {
+  color: #ebc48d;
+  background-color: white;
+}
+.burger-button:active .burger-button__line {
+  background-color: #ebc48d;
+}
+.images-slider__arrow:active .arrow {
+  border-color: #ebc48d;
+  transition: .3s;
 }
