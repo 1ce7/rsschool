@@ -133,6 +133,8 @@ body {
   background: #0C0C0E;
 }
 .h1 {
+  position: relative;
+  z-index: 1;
   cursor: pointer;
   margin: 0;
   color: #FFF;
@@ -756,11 +758,11 @@ body {
     text-align: center;
   }
   .images-slider__images {
-    margin: 0 63px;
+    margin: 0 54px;
     justify-content: center;
   }
   .images-slider__arrow {
-    margin: 35px 0 0 0;
+    margin: 40px 0 0 0;
     display: flex;
     padding: 10px;
     cursor: pointer;
