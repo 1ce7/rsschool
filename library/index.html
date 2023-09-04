@@ -28,14 +28,53 @@
         </svg>
         </button>
       </div>
-      <div class="header__burger">
+      <div class="header__profile-menu"> <!-- header__profile-menu profile-menu -->
+        <div class="profile-menu">
+          <p class="profile-menu__title">Profile</p>
+          <div class="profile-menu__line"></div>
+          <ul class="profile-menu__list">
+            <li class="profile-menu__item"><a href="#" class="profile-menu__log-in-button">Log in</a></li>
+            <li class="profile-menu__item"><a href="#" class="profile-menu__reg-button">Register</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="modal-overlay header__modal-overlay">
+        <form action="get" class="auth-form auth-form_centered header__reg-form">
+          <div class="auth-form__wrapper">
+            <div class="auth-form__close-button"></div>
+            <div class="auth-form__title">Register</div>
+            <div class="auth-form__field">
+              <label class="auth-form__field-label" for="first-name">First name</label>
+              <input class="auth-form__field-input" autocomplete="off" type="text" id="first-name" name="first-name">
+            </div>
+            <div class="auth-form__field">
+              <label class="auth-form__field-label" for="second-name">Last name</label>
+              <input class="auth-form__field-input" autocomplete="off" type="text" id="second-name" name="second-name">
+            </div>
+            <div class="auth-form__field">
+              <label class="auth-form__field-label" for="email">E-mail</label>
+              <input class="auth-form__field-input" autocomplete="off" type="text" id="email" name="email">
+            </div>
+            <div class="auth-form__field">
+              <label class="auth-form__field-label" for="password">Password</label>
+              <input class="auth-form__field-input" autocomplete="off" type="password" id="password" name="password">
+            </div>
+            <button class="button auth-form__button">Sign up</button>
+            <div class="auth-form__footer">
+              <p class="auth-form__footer-text">Already have an account?</p>
+              <a href="#" class="auth-form_footer-link">Login</a>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="header__burger-button"> <!-- header__burger-button burger-button -->
         <div class="burger-button">
           <div class="burger-button__line"></div>
           <div class="burger-button__line"></div>
           <div class="burger-button__line"></div>
         </div>
       </div>
-      <div class="burger-menu__container">
+      <div class="header__burger-menu"> <!-- header__burger-menu burger-menu -->
         <ul class="burger-menu">
           <li class="burger-menu__item"><a href="#about" class="navigation__link">About</a></li>
           <li class="burger-menu__item"><a href="#favorites" class="navigation__link">Favorites</a></li>
@@ -47,7 +86,7 @@
     </div>
   </header>
   <main class="main">
-    <section class="section welcome" id="welcome">
+    <section class="section welcome" id="welcome"> <!-- section__welcome section -->
         <div class="wrapper welcome__wrapper">
             <h2 class="h2 welcome__title">Welcome<br> to the Brooklyn<br> Library</h2>
         </div>
@@ -435,8 +474,8 @@
               <div class="library-card__find-card-bg">
                 <p class="search-form__title">Brooklyn Public Library</p>
                 <div class="search-form__inputs">
-                  <input class="search-from__input" type="text" name="name" id="name" placeholder="Reader's name" pattern="[\w\-]+" required>
-                  <input class="search-from__input" type="text" name="number" id="number" placeholder="Card number" pattern="[\w\-]+" required>
+                  <input class="search-from__input" autocomplete="off" type="text" name="name" id="name" placeholder="Reader's name" pattern="[\w\-]+" required>
+                  <input class="search-from__input" autocomplete="off" type="text" name="number" id="number" placeholder="Card number" pattern="[\w\-]+" required>
                 </div>
                 <div class="search-form__number">
                 </div>
