@@ -33,13 +33,32 @@
           <p class="profile-menu__title">Profile</p>
           <div class="profile-menu__line"></div>
           <ul class="profile-menu__list">
-            <li class="profile-menu__item"><a href="#" class="profile-menu__log-in-button">Log in</a></li>
+            <li class="profile-menu__item"><a href="#" class="profile-menu__login-button">Log in</a></li>
             <li class="profile-menu__item"><a href="#" class="profile-menu__reg-button">Register</a></li>
           </ul>
         </div>
       </div>
-      <div class="modal-overlay header__modal-overlay">
-        <form action="get" class="auth-form auth-form_centered header__reg-form">
+      <!-- <div class="modal-overlay header__modal-overlay"> -->
+        <form action="get" class="auth-form auth-form_centered auth-form_modal header__login-form">
+          <div class="auth-form__wrapper">
+            <div class="auth-form__close-button"></div>
+            <div class="auth-form__title">Login</div>
+            <div class="auth-form__field">
+              <label class="auth-form__field-label" for="email-card">E-mail or readers card</label>
+              <input class="auth-form__field-input" autocomplete="off" type="text" id="email-card" name="email-card">
+            </div>
+            <div class="auth-form__field">
+              <label class="auth-form__field-label" for="password">Password</label>
+              <input class="auth-form__field-input" autocomplete="off" type="password" id="password" name="password">
+            </div>
+            <button class="button auth-form__button">Log In</button>
+            <div class="auth-form__footer">
+              <p class="auth-form__footer-text">Don’t have an account?</p>
+              <a href="javascript:void(0)" class="auth-form_footer-link header__login-form-reg-button">Register</a>
+            </div>
+          </div>
+        </form>
+        <form action="get" class="auth-form auth-form_centered auth-form_modal header__reg-form">
           <div class="auth-form__wrapper">
             <div class="auth-form__close-button"></div>
             <div class="auth-form__title">Register</div>
@@ -62,11 +81,11 @@
             <button class="button auth-form__button">Sign up</button>
             <div class="auth-form__footer">
               <p class="auth-form__footer-text">Already have an account?</p>
-              <a href="#" class="auth-form_footer-link">Login</a>
+              <a href="javascript:void(0)" class="auth-form_footer-link header__reg-form-login-button">Login</a>
             </div>
           </div>
         </form>
-      </div>
+      <!-- </div> -->
       <div class="header__burger-button"> <!-- header__burger-button burger-button -->
         <div class="burger-button">
           <div class="burger-button__line"></div>
@@ -487,8 +506,8 @@
             <p class="library-card__get-card-title">Get a reader card</p>
             <p class="library-card__get-card-text">You will be able to see a reader card after logging into account or you can register a new account</p>
             <div class="library-card__get-card-buttons">
-              <button class="button">Sign Up</button>
-              <button class="button">Log in</button>
+              <button class="button sign-up-button">Sign Up</button>
+              <button class="button login-button">Log in</button>
             </div>
           </div>
         </div>
@@ -525,6 +544,7 @@
       </div>
     </div>
   </footer>
+  <div class="shadow-overlay"></div>
   <script src="script.js"></script>
 </body>
 </html>

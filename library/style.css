@@ -264,7 +264,7 @@ header__profile-menu {
   flex-wrap: wrap;
   gap: 40px 0;
   opacity: 0;
-  transition: opacity 1s ease;
+  transition: opacity .3s ease;
   position: absolute;
 }
 .books-slider__slides {
@@ -758,46 +758,66 @@ header__profile-menu {
   height: 0;
   top: 0;
 }
-.modal-overlay {
+.cursor-default {
+  cursor: default;
+}
+.header__login-form {
+  visibility: hidden;
+  opacity: 0;
+  transition: .3s;
+}
+.header__reg-form {
+  visibility: hidden;
+  opacity: 0;
+  transition: .3s;
+}
+.header__login-form.active {
+  visibility: visible;
+  opacity: 1;
+}
+.header__reg-form.active {
+  visibility: visible;
+  opacity: 1;
+}
+.shadow-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
-}
-.header__modal-overlay {
+  z-index: 99;
   opacity: 0;
-  z-index: -1;
+  visibility: hidden;
 }
-.header__modal-overlay.inactive {
-  animation: fade-out .5s forwards;
+.shadow-overlay.inactive {
+  animation: fade-out .3s forwards;
+
 }
-.header__modal-overlay.active {
-  animation: fade-in .5s forwards;
+.shadow-overlay.active {
+  animation: fade-in .3s forwards;
 }
 @keyframes fade-in {
   from {
     opacity: 0;
-    z-index: 2;
   }
   to {
+    visibility: visible;
     opacity: 1;
-    z-index: 2;
   }
 }
 @keyframes fade-out {
   0% {
+    visibility: visible;
     opacity: 1;
-    z-index: 2;
   }
   99% {
+    visibility: visible;
     opacity: 0;
-    z-index: 2;
   }
   100% {
+    visibility: hidden;
     opacity: 0;
-    z-index: -1;
   }
 }
 
@@ -821,6 +841,9 @@ header__profile-menu {
   flex-direction: column;
   gap: 10px;
 }
+.auth-form_modal {
+  z-index: 100;
+}
 .auth-form__field-input {
   border: 1px solid #BB945F;
   height: 20px;
@@ -835,11 +858,12 @@ header__profile-menu {
   font-size: 10px;
   letter-spacing: 0.6px;
 }
-.auth-form__close-button.active {
+/* .auth-form__close-button.active {
   pointer-events: all;
   cursor: pointer;
-}
+} */
 .auth-form__close-button {
+  cursor: pointer;
   position: absolute;
   top: 15px;
   right: 15px;
@@ -847,8 +871,8 @@ header__profile-menu {
   height: 15px;
   background-color: transparent;
   border: none;
-  pointer-events: none;
-  cursor: default;
+  /* pointer-events: none;
+  cursor: default; */
 }
 .auth-form__close-button::before,
 .auth-form__close-button::after {
