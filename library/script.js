@@ -202,7 +202,6 @@ function handleValidRegistration(newUser, submitButton) {
     localStorage.setItem('registeredUsers', JSON.stringify(registeredUsers));
     closeAuthForm(HEADER_REG_FORM, SHADOW_OVERLAY);
     updatePageForAuthorizedUser(newUser);
-    updateProfileForAuthorizedUser(newUser)
 
 
 }
