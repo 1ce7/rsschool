@@ -1,5 +1,6 @@
 const SHADOW_OVERLAY = document.querySelector('.shadow-overlay');
 const HEADER_MODAL_PROFILE = document.querySelector('.header__modal-profile');
+const HEADER_MODAL_BUY_CARD = document.querySelector('.header__modal-buy-card')
 const BUY_BUTTONS = document.querySelectorAll('.buy-button')
 const ALERT_BOX = document.querySelector(".alert-box");
 const SIGN_UP_BUTTON = document.querySelector('.sign-up-button');
@@ -110,6 +111,8 @@ function handleOutsideFormClick (form, overlay) {
 handleOutsideFormClick(HEADER_REG_FORM, SHADOW_OVERLAY);
 handleOutsideFormClick(HEADER_LOGIN_FORM, SHADOW_OVERLAY);
 handleOutsideFormClick(HEADER_MODAL_PROFILE, SHADOW_OVERLAY);
+handleOutsideFormClick(HEADER_MODAL_BUY_CARD, SHADOW_OVERLAY);
+
 
 function handleAnyMenuItemClick (menu, button, items) {
   items.forEach((item) => {
@@ -147,6 +150,12 @@ const openProfile = () => {
   addActive(SHADOW_OVERLAY);
   removeInactive(SHADOW_OVERLAY);
 }
+const openBuyCardForm = () => {
+  addActive(HEADER_MODAL_BUY_CARD)
+  addActive(SHADOW_OVERLAY);
+  removeInactive(SHADOW_OVERLAY);
+}
+
 HEADER_PROFILE_MENU_BUTTONS[0].addEventListener('click', openLoginForm);
 HEADER_PROFILE_MENU_BUTTONS[1].addEventListener('click', openRegForm);
 LOGIN_BUTTON.addEventListener('click', openLoginForm);
@@ -165,6 +174,7 @@ function handleFormClose (form, overlay) {
 handleFormClose(HEADER_LOGIN_FORM, SHADOW_OVERLAY);
 handleFormClose(HEADER_REG_FORM, SHADOW_OVERLAY);
 handleFormClose(HEADER_MODAL_PROFILE, SHADOW_OVERLAY);
+handleFormClose(HEADER_MODAL_BUY_CARD, SHADOW_OVERLAY);
 
 function handleFormSwap (currentForm, changeButton, targetForm) {
   changeButton.addEventListener('click', () => {
@@ -219,6 +229,12 @@ function updatePageForAuthorizedUser(loggedUser) {
   HEADER_PROFILE_MENU_BUTTONS[1].removeEventListener('click', openRegForm);
   HEADER_PROFILE_MENU_BUTTONS[0].addEventListener('click', openProfile);
   HEADER_PROFILE_MENU_BUTTONS[1].addEventListener('click', updatePageForUnauthorizedUser);
+  BUY_BUTTONS.forEach((button) => {
+    button.removeEventListener('click', openLoginForm);
+  });
+  BUY_BUTTONS.forEach((button) => {
+    button.addEventListener('click', openBuyCardForm);
+  });
 
 }
 
@@ -230,8 +246,14 @@ function updatePageForUnauthorizedUser() {
   updateTextInListItemsAnchors(HEADER_PROFILE_MENU_LIST, ['Log In', 'Registration']);
   removeTitleFromElement(HEADER_INITIALS_BUTTON);
   disableButton(SEARCH_FORM_SUBMIT_BUTTON);
-  HEADER_PROFILE_MENU_BUTTONS[1].addEventListener('click', openRegForm);
   HEADER_PROFILE_MENU_BUTTONS[1].removeEventListener('click', updatePageForUnauthorizedUser);
+  HEADER_PROFILE_MENU_BUTTONS[1].addEventListener('click', openRegForm);
+  BUY_BUTTONS.forEach((button) => {
+    button.removeEventListener('click', openBuyCardForm);
+  });
+  BUY_BUTTONS.forEach((button) => {
+    button.addEventListener('click', openLoginForm);
+  });
 }
 
 

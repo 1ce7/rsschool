@@ -41,8 +41,50 @@
           </ul>
         </div>
       </div>
-
-      <div class="modal-profile header__modal-profile">
+      <div class="modal-buy-card auth-form_centered auth-form_modal header__modal-buy-card">
+        <div class="modal-close-button"></div>
+        <p class="modal-buy-card__title">Buy a library card</p>
+        <div class="modal-buy-card__content">
+          <form action="get" class="auth-form header__buy-card-form">
+            <div class="auth-form__wrapper">
+              <div class="auth-form__field">
+                <label class="auth-form__field-label" for="bankCardNumber">Bank card number</label>
+                <input class="auth-form__field-input" autocomplete="off" type="text" id="bankCardNumber" name="bankCardNumber" required>
+              </div>
+              <div class="auth-form__field">
+                <label class="auth-form__field-label" for="expirationCode">Expiration code</label>
+                <div class="auth-form__field-inputs">
+                  <input class="auth-form__field-input" autocomplete="off" type="text" id="expirationCode1" name="expirationCode1" required>
+                  <input class="auth-form__field-input" autocomplete="off" type="text" id="expirationCode2" name="expirationCode2" required>
+                </div>
+              </div>
+              <div class="auth-form__field">
+                <label class="auth-form__field-label" for="cvc">CVC</label>
+                <input class="auth-form__field-input" autocomplete="off" type="text" id="cvc" name="cvc" required>
+              </div>
+              <div class="auth-form__field">
+                <label class="auth-form__field-label" for="cardHolderName">Cardholder name</label>
+                <input class="auth-form__field-input" autocomplete="off" type="text" id="cardHolderName" name="cardHolderName" required>
+              </div>
+              <div class="auth-form__field">
+                <label class="auth-form__field-label" for="postalCode">Postal code</label>
+                <input class="auth-form__field-input" autocomplete="off" type="password" id="postalCode" name="postalCode" required>
+              </div>
+              <div class="auth-form__field">
+                <label class="auth-form__field-label" for="cityOrTown">City / Town</label>
+                <input class="auth-form__field-input" autocomplete="off" type="text" id="cityOrTown" name="cityOrTown" required>
+              </div>
+              <div class="modal-buy-card__button-price">
+                <button class="button auth-form__button" type="submit">Buy</button>
+                <span class="modal-buy-card__price-text">$ 25.00</span>
+              </div>
+            </div>
+          </form>
+          <p class="modal-buy-card__text">If you are live, work, attend school, or pay property taxes in New York State, you can get a $25 digital library card right now using this online form. Visitors to New York State can also use this form to apply for a temporary card.
+          </p>
+        </div>
+      </div>
+      <div class="modal-profile auth-form_centered auth-form_modal header__modal-profile">
         <div class="modal-close-button"></div>
         <div class="modal-profile__avatar-name">
           <div class="modal-profile__avatar">
