@@ -5,8 +5,11 @@ const BUY_BUTTONS = document.querySelectorAll('.buy-button')
 const ALERT_BOX = document.querySelector(".alert-box");
 const SIGN_UP_BUTTON = document.querySelector('.sign-up-button');
 const LOGIN_BUTTON = document.querySelector('.login-button');
-const SEARCH_FORM_SUBMIT_BUTTON = document.querySelector('.search-form__submit-button')
-const AUTH_FORM_SUBMIT_BUTTONS = document.querySelectorAll('.auth-form__button')
+const SEARCH_FORM_SUBMIT_BUTTON = document.querySelector('.search-form__submit-button');
+const AUTH_FORM_SUBMIT_BUTTONS = document.querySelectorAll('.auth-form__button');
+const MODAL_PROFILE_USER_STAT_VISITS = document.querySelector('.modal-profile__user-stat-visits');
+const MODAL_PROFILE_USER_STAT_BONUSES = document.querySelector('.modal-profile__user-stat-bonuses');
+const MODAL_PROFILE_USER_STAT_BOOKS = document.querySelector('.modal-profile__user-stat-books');
 const HEADER_INITIALS_BUTTON_CONTAINER = document.querySelector('.header__initials-button');
 const HEADER_INITIALS_BUTTON = HEADER_INITIALS_BUTTON_CONTAINER.querySelector('.initials-button');
 const HEADER_BURGER_BUTTON = document.querySelector('.header__burger-button .burger-button');
@@ -191,31 +194,58 @@ function handleFormSubmit(form, handleValidSubmit) {
     event.preventDefault();
     if (form.checkValidity()) {
       const formData = new FormData(form);
-      const userFormObj = Object.fromEntries(formData.entries());
-      handleValidSubmit(userFormObj, submitButton);
+      const formObj = Object.fromEntries(formData.entries());
+      handleValidSubmit(formObj, submitButton);
 }
     else {
       form.reportValidity();
     }
   });
 }
-function handleValidRegistration(newUser, submitButton) {
+function handleValidRegistrationSubmit(formUserRegistration, submitButton) {
   const registeredUsers = JSON.parse(localStorage.getItem('registeredUsers')) || [];
-    if (registeredUsers.find(user => user.email === newUser.email)) {
+    if (registeredUsers.find(user => user.email === formUserRegistration.email)) {
       displayAlert("This email address is already in use.", submitButton);
       return;
     }
     displayAlert("Your account has been successfully registered.", submitButton);
-
-    newUser.cardNumber = getUniqueCardNumber(registeredUsers);
-    registeredUsers.push(newUser);
+    formUserRegistration.loginCount = 1;
+    formUserRegistration.cardNumber = getUniqueCardNumber(registeredUsers);
+    registeredUsers.push(formUserRegistration);
     localStorage.setItem('registeredUsers', JSON.stringify(registeredUsers));
     closeAuthForm(HEADER_REG_FORM, SHADOW_OVERLAY);
-    updatePageForAuthorizedUser(newUser);
-
-
+    updatePageForAuthorizedUser(formUserRegistration);
 }
-handleFormSubmit(HEADER_REG_FORM, handleValidRegistration);
+handleFormSubmit(HEADER_REG_FORM, handleValidRegistrationSubmit);
+handleFormSubmit(HEADER_LOGIN_FORM, handleValidLoginSubmit);
+
+
+function handleValidLoginSubmit(formUserLogin, submitButton) {
+  const registeredUsers = JSON.parse(localStorage.getItem('registeredUsers')) || [];
+    if (registeredUsers.find(user => user.regPassword === formUserLogin.loginPassword && (user.cardNumber === formUserLogin.emailOrCardNumber || user.email === formUserLogin.emailOrCardNumber ))) {
+      displayAlert("You are logged in", submitButton);
+      closeAuthForm(HEADER_LOGIN_FORM, SHADOW_OVERLAY);
+      let loggedUser = getUserByEmailOrCardNumber(formUserLogin.emailOrCardNumber, registeredUsers);
+      console.log(loggedUser)
+      loggedUser.loginCount++; //не сохраняется так как это копия обеькта а не корневой обьект
+      console.log(loggedUser)
+      updatePageForAuthorizedUser(loggedUser);
+      return;
+    }
+    displayAlert("Wrong password or email", submitButton);
+    return;
+}
+
+
+const getUserByEmailOrCardNumber = (emailOrCardNumber, registeredUsers) => {
+  for (let i = 0; i < registeredUsers.length; i++) {
+    const user = registeredUsers[i];
+    if (user.email === emailOrCardNumber || user.cardNumber === emailOrCardNumber) {
+      return user;
+    }
+  }
+  return null;
+};
 
 function updatePageForAuthorizedUser(loggedUser) {
   addInactive(HEADER_PROFILE_BUTTON_CONTAINER);
@@ -224,6 +254,7 @@ function updatePageForAuthorizedUser(loggedUser) {
   addTitleToElement(HEADER_INITIALS_BUTTON, loggedUser.firstName + ' ' + loggedUser.secondName);
   updateTextInElement(HEADER_INITIALS_BUTTON, (loggedUser.firstName.charAt(0) + loggedUser.secondName.charAt(0)).toUpperCase());
   updateTextInElement(HEADER_PROFILE_MENU_TITLE, loggedUser.cardNumber);
+  updateTextInElement(MODAL_PROFILE_USER_STAT_VISITS, loggedUser.loginCount);
   updateTextInListItemsAnchors(HEADER_PROFILE_MENU_LIST, ['Profile', 'Log Out']);
   HEADER_PROFILE_MENU_BUTTONS[0].removeEventListener('click', openLoginForm);
   HEADER_PROFILE_MENU_BUTTONS[1].removeEventListener('click', openRegForm);
@@ -246,7 +277,9 @@ function updatePageForUnauthorizedUser() {
   updateTextInListItemsAnchors(HEADER_PROFILE_MENU_LIST, ['Log In', 'Registration']);
   removeTitleFromElement(HEADER_INITIALS_BUTTON);
   disableButton(SEARCH_FORM_SUBMIT_BUTTON);
+  HEADER_PROFILE_MENU_BUTTONS[0].removeEventListener('click', openProfile);
   HEADER_PROFILE_MENU_BUTTONS[1].removeEventListener('click', updatePageForUnauthorizedUser);
+  HEADER_PROFILE_MENU_BUTTONS[0].addEventListener('click', openLoginForm);
   HEADER_PROFILE_MENU_BUTTONS[1].addEventListener('click', openRegForm);
   BUY_BUTTONS.forEach((button) => {
     button.removeEventListener('click', openBuyCardForm);
@@ -275,8 +308,8 @@ function addTitleToElement(element, titleString) {
 function removeTitleFromElement(element) {
   element.removeAttribute('title');
 }
-function getUniqueCardNumber(users) {
-  const usedCardNumbers = new Set(users.map(user => user.cardNumber));
+function getUniqueCardNumber(registeredUsers) {
+  const usedCardNumbers = new Set(registeredUsers.map(registeredUser => registeredUser.cardNumber));
   let cardNumber;
   do {
     cardNumber = Math.floor(Math.random() * 0x1000000000).toString(16).padStart(9, '0');

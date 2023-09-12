@@ -52,7 +52,10 @@
                 <input class="auth-form__field-input" autocomplete="off" type="text" id="bankCardNumber" name="bankCardNumber" required>
               </div>
               <div class="auth-form__field">
-                <label class="auth-form__field-label" for="expirationCode">Expiration code</label>
+                <div class="auth-form__labels-field">
+                  <label class="auth-form__field-label" for="expirationCode1">Expiration code</label>
+                  <label class="auth-form__field-label" for="expirationCode2"></label>
+                </div>
                 <div class="auth-form__field-inputs">
                   <input class="auth-form__field-input" autocomplete="off" type="text" id="expirationCode1" name="expirationCode1" required>
                   <input class="auth-form__field-input" autocomplete="off" type="text" id="expirationCode2" name="expirationCode2" required>
@@ -102,7 +105,7 @@
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M10.5 10C13.2614 10 15.5 7.76143 15.5 5C15.5 2.23857 13.2614 0 10.5 0C7.73857 0 5.5 2.23857 5.5 5C5.5 7.76143 7.73857 10 10.5 10ZM17.5711 13.9289C19.4464 15.8043 20.5 18.3478 20.5 21H10.5H0.5C0.5 18.3478 1.55357 15.8043 3.42894 13.9289C5.30429 12.0536 7.84784 11 10.5 11C13.1522 11 15.6957 12.0536 17.5711 13.9289Z" fill="#BB945F"/>
                 </svg>
               </div>
-              <p class="modal-profile__user-stat-number">23</p>
+              <p class="modal-profile__user-stat-visits modal-profile__user-stat-number">23</p>
             </div>
             <div class="modal-profile__user-stat">
               <p class="modal-profile__user-stat-title">Bonuses</p>
@@ -111,7 +114,7 @@
                   <path d="M10 0L12.2249 3.31001L15.8779 2.00532L15.8249 6.05634L19.5106 7.25532L17.2 10.5L19.5106 13.7447L15.8249 14.9437L15.8779 18.9947L12.2249 17.69L10 21L7.77508 17.69L4.12215 18.9947L4.17508 14.9437L0.489435 13.7447L2.8 10.5L0.489435 7.25532L4.17508 6.05634L4.12215 2.00532L7.77508 3.31001L10 0Z" fill="#BB945F"/>
                 </svg>
               </div>
-              <p class="modal-profile__user-stat-number">1240</p>
+              <p class="modal-profile__user-stat-bonuses modal-profile__user-stat-number">1240</p>
             </div>
             <div class="modal-profile__user-stat">
               <p class="modal-profile__user-stat-title">Books</p>
@@ -122,7 +125,7 @@
                   <rect x="1" width="1" height="21" fill="white"/>
                 </svg>
               </div>
-              <p class="modal-profile__user-stat-number">2</p>
+              <p class="modal-profile__user-stat-books modal-profile__user-stat-number">2</p>
             </div>
           </div>
           <div class="modal-profile__rented-books">
@@ -149,12 +152,12 @@
             <div class="modal-close-button"></div>
             <div class="auth-form__title">Login</div>
             <div class="auth-form__field">
-              <label class="auth-form__field-label" for="emailOrCard">E-mail or readers card</label>
-              <input class="auth-form__field-input" autocomplete="off" type="email" id="emailOrCard" name="emailOrCard" required>
+              <label class="auth-form__field-label" for="emailOrCardNumber">E-mail or readers card</label>
+              <input class="auth-form__field-input" autocomplete="off" type="email" id="emailOrCardNumber" name="emailOrCardNumber" required>
             </div>
             <div class="auth-form__field">
-              <label class="auth-form__field-label" for="login-password">Password</label>
-              <input class="auth-form__field-input" autocomplete="off" type="password" id="login-password" name="login-password" pattern=".{8,}" required>
+              <label class="auth-form__field-label" for="loginPassword">Password</label>
+              <input class="auth-form__field-input" autocomplete="off" type="password" id="loginPassword" name="loginPassword" pattern=".{8,}" required>
             </div>
             <button class="button auth-form__button" type="submit">Log In</button>
             <div class="auth-form__footer">
@@ -180,8 +183,8 @@
               <input class="auth-form__field-input" autocomplete="off" type="email" id="email" name="email" required>
             </div>
             <div class="auth-form__field">
-              <label class="auth-form__field-label" for="reg-password">Password</label>
-              <input class="auth-form__field-input" autocomplete="off" type="password" id="reg-password" name="reg-password" pattern=".{8,}" required>
+              <label class="auth-form__field-label" for="regPassword">Password</label>
+              <input class="auth-form__field-input" autocomplete="off" type="password" id="regPassword" name="regPassword" pattern=".{8,}" required>
             </div>
             <button class="button auth-form__button" type="submit">Sign up</button>
             <div class="auth-form__footer">
