@@ -226,9 +226,8 @@ function handleValidLoginSubmit(formUserLogin, submitButton) {
       displayAlert("You are logged in", submitButton);
       closeAuthForm(HEADER_LOGIN_FORM, SHADOW_OVERLAY);
       let loggedUser = getUserByEmailOrCardNumber(formUserLogin.emailOrCardNumber, registeredUsers);
-      console.log(loggedUser)
-      loggedUser.loginCount++; //не сохраняется так как это копия обеькта а не корневой обьект
-      console.log(loggedUser)
+      loggedUser.loginCount++;
+      localStorage.setItem('registeredUsers', JSON.stringify(registeredUsers));
       updatePageForAuthorizedUser(loggedUser);
       return;
     }
