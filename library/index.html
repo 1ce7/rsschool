@@ -49,7 +49,7 @@
             <div class="auth-form__wrapper">
               <div class="auth-form__field">
                 <label class="auth-form__field-label" for="bankCardNumber">Bank card number</label>
-                <input class="auth-form__field-input" autocomplete="off" type="text" id="bankCardNumber" name="bankCardNumber" required>
+                <input class="auth-form__field-input" autocomplete="off" type="text" pattern="[0-9]*" inputmode="numeric" maxlength="16" id="bankCardNumber" name="bankCardNumber" required>
               </div>
               <div class="auth-form__field">
                 <div class="auth-form__labels-field">
@@ -57,13 +57,13 @@
                   <label class="auth-form__field-label" for="expirationCode2"></label>
                 </div>
                 <div class="auth-form__field-inputs">
-                  <input class="auth-form__field-input" autocomplete="off" type="text" id="expirationCode1" name="expirationCode1" required>
-                  <input class="auth-form__field-input" autocomplete="off" type="text" id="expirationCode2" name="expirationCode2" required>
+                  <input class="auth-form__field-input" autocomplete="off" type="text" pattern="[0-9]*" inputmode="numeric" maxlength="2" id="expirationCode1" name="expirationCode1" required>
+                  <input class="auth-form__field-input" autocomplete="off" type="text" pattern="[0-9]*" inputmode="numeric" maxlength="2" id="expirationCode2" name="expirationCode2" required>
                 </div>
               </div>
               <div class="auth-form__field">
                 <label class="auth-form__field-label" for="cvc">CVC</label>
-                <input class="auth-form__field-input" autocomplete="off" type="text" id="cvc" name="cvc" required>
+                <input class="auth-form__field-input" autocomplete="off" type="text" pattern="[0-9]*" inputmode="numeric" maxlength="3" id="cvc" name="cvc" required>
               </div>
               <div class="auth-form__field">
                 <label class="auth-form__field-label" for="cardHolderName">Cardholder name</label>
