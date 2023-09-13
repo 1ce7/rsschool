@@ -1,7 +1,8 @@
 const SHADOW_OVERLAY = document.querySelector('.shadow-overlay');
 const HEADER_MODAL_PROFILE = document.querySelector('.header__modal-profile');
-const HEADER_MODAL_BUY_CARD = document.querySelector('.header__modal-buy-card')
-const BUY_BUTTONS = document.querySelectorAll('.buy-button')
+const HEADER_MODAL_BUY_CARD = document.querySelector('.header__modal-buy-card');
+const BUY_BUTTONS = document.querySelectorAll('.buy-button');
+const BUY_CARD_FORM = document.querySelector('.header__buy-card-form');
 const ALERT_BOX = document.querySelector(".alert-box");
 const SIGN_UP_BUTTON = document.querySelector('.sign-up-button');
 const LOGIN_BUTTON = document.querySelector('.login-button');
@@ -167,6 +168,7 @@ BUY_BUTTONS.forEach((button) => {
   button.addEventListener('click', openLoginForm);
 });
 
+
 function handleFormClose (form, overlay) {
   form.querySelector('.modal-close-button').addEventListener('click', () => {
     removeActive(form);
@@ -188,6 +190,12 @@ function handleFormSwap (currentForm, changeButton, targetForm) {
 handleFormSwap(HEADER_LOGIN_FORM, HEADER_LOGIN_FORM_REG_BUTTON, HEADER_REG_FORM);
 handleFormSwap(HEADER_REG_FORM, HEADER_REG_FORM_LOGIN_BUTTON, HEADER_LOGIN_FORM);
 
+BUY_CARD_FORM.addEventListener('input', () => {
+  const inputs = Array.from(BUY_CARD_FORM.getElementsByTagName('input'));
+  const areInputsFilled = inputs.every(input => input.value !== '');
+  BUY_CARD_FORM.querySelector("button[type='submit']").style.pointerEvents = areInputsFilled ? 'all' : 'none';
+});
+
 function handleFormSubmit(form, handleValidSubmit) {
   const submitButton = form.querySelector("button[type='submit']");
   submitButton.addEventListener('click', event => {
@@ -202,6 +210,10 @@ function handleFormSubmit(form, handleValidSubmit) {
     }
   });
 }
+
+handleFormSubmit(HEADER_REG_FORM, handleValidRegistrationSubmit);
+handleFormSubmit(HEADER_LOGIN_FORM, handleValidLoginSubmit);
+
 function handleValidRegistrationSubmit(formUserRegistration, submitButton) {
   const registeredUsers = JSON.parse(localStorage.getItem('registeredUsers')) || [];
     if (registeredUsers.find(user => user.email === formUserRegistration.email)) {
@@ -216,14 +228,11 @@ function handleValidRegistrationSubmit(formUserRegistration, submitButton) {
     closeAuthForm(HEADER_REG_FORM, SHADOW_OVERLAY);
     updatePageForAuthorizedUser(formUserRegistration);
 }
-handleFormSubmit(HEADER_REG_FORM, handleValidRegistrationSubmit);
-handleFormSubmit(HEADER_LOGIN_FORM, handleValidLoginSubmit);
-
 
 function handleValidLoginSubmit(formUserLogin, submitButton) {
   const registeredUsers = JSON.parse(localStorage.getItem('registeredUsers')) || [];
     if (registeredUsers.find(user => user.regPassword === formUserLogin.loginPassword && (user.cardNumber === formUserLogin.emailOrCardNumber || user.email === formUserLogin.emailOrCardNumber ))) {
-      displayAlert("You are logged in", submitButton);
+      displayAlert("You are logged in.", submitButton);
       closeAuthForm(HEADER_LOGIN_FORM, SHADOW_OVERLAY);
       let loggedUser = getUserByEmailOrCardNumber(formUserLogin.emailOrCardNumber, registeredUsers);
       loggedUser.loginCount++;
@@ -231,11 +240,9 @@ function handleValidLoginSubmit(formUserLogin, submitButton) {
       updatePageForAuthorizedUser(loggedUser);
       return;
     }
-    displayAlert("Wrong password or email", submitButton);
+    displayAlert("Wrong password or email.", submitButton);
     return;
 }
-
-
 const getUserByEmailOrCardNumber = (emailOrCardNumber, registeredUsers) => {
   for (let i = 0; i < registeredUsers.length; i++) {
     const user = registeredUsers[i];
@@ -263,10 +270,18 @@ function updatePageForAuthorizedUser(loggedUser) {
     button.removeEventListener('click', openLoginForm);
   });
   BUY_BUTTONS.forEach((button) => {
-    button.addEventListener('click', openBuyCardForm);
+    button.addEventListener('click', () => {
+      openBuyCardForm();
+    });
   });
-
 }
+// BUY_BUTTONS.forEach((button) => {
+//   button.addEventListener('click', () => {
+//     button.innerText = 'Own';
+//     button.style.pointerEvents = "none";
+//     button.classList.add('own-button');
+//   });
+// });
 
 function updatePageForUnauthorizedUser() {
   removeInactive(HEADER_PROFILE_BUTTON_CONTAINER);

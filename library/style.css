@@ -1000,7 +1000,9 @@ header__profile-menu {
   visibility: visible;
   opacity: 1;
 }
-
+.modal-buy-card__button-price .auth-form__button {
+  pointer-events: none;
+}
 .alert-box {
   position: fixed;
   color: white;
@@ -1129,6 +1131,11 @@ header__profile-menu {
   pointer-events: all;
   cursor: pointer;
 } */
+.own-button {
+  color: #BB945F;
+  border-color: #BB945F;
+  pointer-events: none;
+}
 .modal-close-button {
   cursor: pointer;
   position: absolute;
