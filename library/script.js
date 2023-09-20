@@ -42,6 +42,7 @@ const BOOK_CARD_BUTTONS = document.querySelectorAll('.book-card__button');
 const BOOKS_SLIDER_SLIDES = document.querySelectorAll('.books-slider__slide');
 const BOOKS_SLIDER_BUTTONS = document.querySelectorAll('.books-slider__radio-buttons input[name="books-slide"]');
 const BOOKS_SLIDER_SLIDE = document.querySelector('.books-slider__slide');
+const registeredUsers = JSON.parse(localStorage.getItem('registeredUsers')) || [];
 
 function toggleActive(element) {
   element.classList.toggle('active');
@@ -195,6 +196,9 @@ BUY_CARD_FORM.addEventListener('input', () => {
   const areInputsFilled = inputs.every(input => input.value !== '');
   BUY_CARD_FORM.querySelector("button[type='submit']").style.pointerEvents = areInputsFilled ? 'all' : 'none';
 });
+BUY_CARD_FORM.addEventListener('click', () => {
+
+});
 
 function handleFormSubmit(form, handleValidSubmit) {
   const submitButton = form.querySelector("button[type='submit']");
@@ -204,8 +208,7 @@ function handleFormSubmit(form, handleValidSubmit) {
       const formData = new FormData(form);
       const formObj = Object.fromEntries(formData.entries());
       handleValidSubmit(formObj, submitButton);
-}
-    else {
+    } else {
       form.reportValidity();
     }
   });
@@ -215,7 +218,6 @@ handleFormSubmit(HEADER_REG_FORM, handleValidRegistrationSubmit);
 handleFormSubmit(HEADER_LOGIN_FORM, handleValidLoginSubmit);
 
 function handleValidRegistrationSubmit(formUserRegistration, submitButton) {
-  const registeredUsers = JSON.parse(localStorage.getItem('registeredUsers')) || [];
     if (registeredUsers.find(user => user.email === formUserRegistration.email)) {
       displayAlert("This email address is already in use.", submitButton);
       return;
@@ -230,7 +232,6 @@ function handleValidRegistrationSubmit(formUserRegistration, submitButton) {
 }
 
 function handleValidLoginSubmit(formUserLogin, submitButton) {
-  const registeredUsers = JSON.parse(localStorage.getItem('registeredUsers')) || [];
     if (registeredUsers.find(user => user.regPassword === formUserLogin.loginPassword && (user.cardNumber === formUserLogin.emailOrCardNumber || user.email === formUserLogin.emailOrCardNumber ))) {
       displayAlert("You are logged in.", submitButton);
       closeAuthForm(HEADER_LOGIN_FORM, SHADOW_OVERLAY);
@@ -243,9 +244,9 @@ function handleValidLoginSubmit(formUserLogin, submitButton) {
     displayAlert("Wrong password or email.", submitButton);
     return;
 }
-const getUserByEmailOrCardNumber = (emailOrCardNumber, registeredUsers) => {
-  for (let i = 0; i < registeredUsers.length; i++) {
-    const user = registeredUsers[i];
+const getUserByEmailOrCardNumber = (emailOrCardNumber, users) => {
+  for (let i = 0; i < users.length; i++) {
+    const user = users[i];
     if (user.email === emailOrCardNumber || user.cardNumber === emailOrCardNumber) {
       return user;
     }
@@ -322,8 +323,8 @@ function addTitleToElement(element, titleString) {
 function removeTitleFromElement(element) {
   element.removeAttribute('title');
 }
-function getUniqueCardNumber(registeredUsers) {
-  const usedCardNumbers = new Set(registeredUsers.map(registeredUser => registeredUser.cardNumber));
+function getUniqueCardNumber(users) {
+  const usedCardNumbers = new Set(users.map(user => user.cardNumber));
   let cardNumber;
   do {
     cardNumber = Math.floor(Math.random() * 0x1000000000).toString(16).padStart(9, '0');
