@@ -67,5 +67,7 @@
     padding: 5px 10px;
     background: hsl(219deg 86% 78% / 50%);
     border-bottom: solid 2px black;
+    display: flex;
+    justify-content: space-between;
   }
 }

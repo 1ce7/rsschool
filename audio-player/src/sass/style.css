@@ -411,6 +411,7 @@ body {
   height: 100%;
   display: flex;
   flex-direction: column;
+  font-family: "Roboto", sans-serif;
 }
 
 img {
@@ -504,6 +505,8 @@ main {
   padding: 5px 10px;
   background: hsla(219, 86%, 78%, 0.5);
   border-bottom: solid 2px black;
+  display: flex;
+  justify-content: space-between;
 }
 
 .button {
@@ -519,7 +522,6 @@ main {
   color: black;
   margin-top: auto;
   background: hsla(219, 80%, 52%, 0.95);
-  font-family: "Roboto", sans-serif;
 }
 .footer svg {
   width: 80px;

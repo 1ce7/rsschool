@@ -5,42 +5,42 @@ const audios = [
     author: "Pochonbo Electronic Ensemble",
     src: "src/assets/audio/Cholima.mp3",
     cover: "src/assets/img/maxresdefault.jpg",
-    duration: 162,
+    duration: 162.437378,
   },
   {
     name: "Stirb Nicht Vor Mir",
     author: "Rammstein (feat.Sharleen Spiteri)",
     src: "src/assets/audio/Rammstein - Stirb Nicht Vor Mir (feat. Sharleen Spiteri).mp3",
     cover: "src/assets/img/strib.jpg",
-    duration: 257,
+    duration: 247.405714,
   },
   {
     name: "Don't start now",
     author: "Dua Lipa",
     src: "src/assets/audio/dontstartnow.mp3",
     cover: "src/assets/img/dontstartnow.png",
-    duration: 203,
+    duration: 203.389388,
   },
   {
     name: "Lemonade",
     author: "Beyonce",
     src: "src/assets/audio/beyonce.mp3",
     cover: "src/assets/img/lemonade.png",
-    duration: 233,
+    duration: 233.717551,
   },
   {
     name: "Green Fields",
     author: "The Brothers Four",
     src: "src/assets/audio/The Brothers Four - Green Fields.mp3",
     cover: "src/assets/img/tbf.jpg",
-    duration: 213,
+    duration: 186.331429,
   },
   {
     name: "Пройдет еще два года",
     author: "ДК",
     src: "src/assets/audio/Пройдет еще два года.mp3",
     cover: "src/assets/img/DK.jpg",
-    duration: 300,
+    duration: 157.022041,
   },
 ]
 function renderAudioList(audios, parentElement) {
@@ -52,7 +52,10 @@ function renderAudioList(audios, parentElement) {
     if (index === 0) {
       audioListItem.classList.add('active-audio-info');
     }
-    audioListItem.innerText = `${audio.name} - ${audio.author}`;
+    audioListItem.innerHTML = `
+      <span class="audio-player__audio-list-item-name">${audio.name} - ${audio.author}</span>
+      <span class="audio-player__audio-list-item-time">${toMinutes(audio.duration)}</span>
+    `;
     audioList.appendChild(audioListItem);
   });
   parentElement.appendChild(audioList);
@@ -69,6 +72,9 @@ const repeatBtn = document.querySelector(".repeat-button");
 const shuffleBtn = document.querySelector(".shuffle-button");
 const audioName = document.querySelector(".audio-player__audio-name");
 const audioImage = document.querySelector('.audio-player__audio-image img');
+const audioListTime = document.querySelector('.audio-player__audio-list-item-time');
+const audioListTimes = document.querySelectorAll('.audio-player__audio-list-item-time');
+const audioListNames = document.querySelectorAll('.audio-player__audio-list-item-name')
 
 let currIndex = 0;
 let shuffledAudios = [...audios];
@@ -77,6 +83,13 @@ let isPlaying = false;
 let playingTime = 0;
 let currAudio = shuffledAudios[currIndex];
 
+function toMinutes(seconds) {
+  return `${Math.floor(seconds / 60)
+    .toString()
+    .padStart(2, '0')}:${Math.floor(seconds % 60)
+    .toString()
+    .padStart(2, '0')}`;
+}
 function playAudio() {
   if (!isPlaying) {
     audio.src = shuffledAudios[currIndex].src;
@@ -150,29 +163,6 @@ repeatBtn.addEventListener("click", (event) => {
 });
 
 shuffleBtn.addEventListener("click", () => {
-  // let btnIcon = event.currentTarget.children[0].children[0];
-  // changeIcon(btnIcon, '#shuffle', '#order');
-  // playBtn.children[0].children[0].setAttribute('href', '#play');
-  // audio.pause();
-  // isPlaying = false;
-  // playingTime = 0;
-  // if(isShuffle) {
-  //   shuffledAudios = [...audios];
-  //   currIndex = 0;
-  //   currAudio = shuffledAudios[currIndex];
-  //   console.log(shuffledAudios);
-  //   shuffledAudios.forEach((audio, index) => {
-  //     audioListItems[index].innerText = `${audio.name} - ${audio.author}`;
-  //   });
-  //   audioListItems.forEach((item) => {
-  //     item.classList.remove('active-audio-info');
-  //   });
-  //   audioListItems[currIndex].classList.add('active-audio-info');
-  //   audioPlayer.style.backgroundImage = `url(${currAudio.cover})`;
-  //   audioImage.setAttribute('src', currAudio.cover);
-  //   audioName.innerText = currAudio.name;
-  //   isShuffle = false;
-  // } else {
     isShuffle = false;
     [shuffledAudios[0], shuffledAudios[currIndex]] = [shuffledAudios[currIndex], shuffledAudios[0]];
     let shuffledPart = shuffledAudios.slice(1);
@@ -189,7 +179,10 @@ shuffleBtn.addEventListener("click", () => {
     shuffledAudios = [shuffledAudios[0], ...shuffledPart];
     console.log(shuffledAudios);
     shuffledAudios.forEach((audio, index) => {
-      audioListItems[index].innerText = `${audio.name} - ${audio.author}`;
+      audioListNames[index].innerText = `${audio.name} - ${audio.author}`;
+      if (audio !== currAudio) {
+        audioListTimes[index].innerText = toMinutes(audio.duration);
+      }
     });
     audioListItems.forEach((item) => {
       item.classList.remove('active-audio-info');
@@ -199,10 +192,17 @@ shuffleBtn.addEventListener("click", () => {
     audioImage.setAttribute('src', currAudio.cover);
     audioName.innerText = currAudio.name;
 });
-
-audio.addEventListener('play', (event) => {
+audio.addEventListener('play', () => {
   audioListItems.forEach((item) => {
     item.classList.remove('active-audio-info');
+  });
+  shuffledAudios.forEach((audio, index) => {
+    if (audio !== currAudio) {
+      audioListTimes[index].innerText = toMinutes(audio.duration);
+    }
+  });
+  audio.addEventListener('timeupdate', () => {
+    audioListItems[currIndex].querySelector('.audio-player__audio-list-item-time').innerText = toMinutes(audio.currentTime);
   });
   audioListItems[currIndex].classList.add('active-audio-info');
   audioPlayer.style.backgroundImage = `url(${currAudio.cover})`;
