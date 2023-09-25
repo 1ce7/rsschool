@@ -29,10 +29,10 @@ const audios = [
     duration: 233,
   },
   {
-    name: "F.A.Q",
-    author: "Лондон",
-    src: "src/assets/audio/FAQ.mp3",
-    cover: "src/assets/img/London.jpg",
+    name: "Green Fields",
+    author: "The Brothers Four",
+    src: "src/assets/audio/The Brothers Four - Green Fields.mp3",
+    cover: "src/assets/img/tbf.jpg",
     duration: 213,
   },
   {
