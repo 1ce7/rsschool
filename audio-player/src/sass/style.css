@@ -481,6 +481,7 @@ main {
 .audio-player__audio-timeline-box {
   padding: 6px 0 8px 0;
   display: flex;
+  margin: 0 5px;
 }
 .audio-player__audio-timeline-box:hover {
   cursor: pointer;
@@ -497,11 +498,21 @@ main {
   background: black;
 }
 .audio-player__audio-volume {
-  margin: 5px;
-  width: 10px;
   height: 50px;
   background: white;
+  display: flex;
+  align-items: end;
+}
+.audio-player__audio-current-volume {
+  width: 10px;
+  background: black;
+}
+.audio-player__audio-volume-box {
+  padding: 0 5px;
   flex-shrink: 0;
+}
+.audio-player__audio-volume-box:hover {
+  cursor: pointer;
 }
 .audio-player .flex-column {
   flex-shrink: 1;

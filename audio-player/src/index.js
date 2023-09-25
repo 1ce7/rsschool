@@ -83,6 +83,9 @@ const audioListNames = document.querySelectorAll('.audio-player__audio-list-item
 const audioCurrentTimeline = document.querySelector('.audio-player__audio-current-timeline');
 const audioTimeline = document.querySelector('.audio-player__audio-timeline');
 const audioTimelineBox = document.querySelector('.audio-player__audio-timeline-box');
+const audioCurrentVolume = document.querySelector('.audio-player__audio-current-volume');
+const audioVolume = document.querySelector('.audio-player__audio-volume');
+const audioVolumeBox = document.querySelector('.audio-player__audio-volume-box');
 
 let currIndex = 0;
 let shuffledAudios = [...audios];
@@ -220,4 +223,14 @@ audioTimelineBox.addEventListener('click', (event) => {
   const clickX = event.clientX - audioTimeline.offsetLeft;
   const clickTime = (clickX / timelineWidth) * audio.duration;
   audio.currentTime = clickTime;
+});
+audioVolumeBox.addEventListener('click', (event) => {
+  const volumeHeight = audioVolume.offsetHeight;
+  const clickY = volumeHeight - (event.clientY - audioVolume.offsetTop);
+  const volumePercentage = (clickY / volumeHeight) * 100;
+  const volume = volumePercentage / 100;
+  audio.volume = volume;
+});
+audio.addEventListener('volumechange', () => {
+  audioCurrentVolume.style.height = audio.volume * 100 + '%';
 });

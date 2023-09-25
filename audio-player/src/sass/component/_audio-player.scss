@@ -41,6 +41,7 @@
   &__audio-timeline-box {
     padding: 6px 0 8px 0;
     display: flex;
+    margin: 0 5px;
   }
   &__audio-timeline-box:hover {
     cursor: pointer;
@@ -57,11 +58,21 @@
     background: black;
   }
   &__audio-volume {
-    margin: 5px;
-    width: 10px;
     height: 50px;
     background: white;
+    display: flex;
+    align-items: end;
+  }
+  &__audio-current-volume {
+    width: 10px;
+    background: black;
+  }
+  &__audio-volume-box {
+    padding: 0 5px;
     flex-shrink: 0;
+  }
+  &__audio-volume-box:hover {
+    cursor: pointer;
   }
   & .flex-column {
     flex-shrink: 1;
