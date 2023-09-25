@@ -496,6 +496,7 @@ main {
 .audio-player__audio-current-timeline {
   height: 10px;
   background: black;
+  width: 0%;
 }
 .audio-player__audio-volume {
   height: 50px;

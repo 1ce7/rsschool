@@ -94,6 +94,8 @@ let isPlaying = false;
 let playingTime = 0;
 let currAudio = shuffledAudios[currIndex];
 audio.src = shuffledAudios[currIndex].src;
+audio.volume = 0.5;
+
 
 function toMinutes(seconds) {
   return `${Math.floor(seconds / 60)
@@ -104,6 +106,9 @@ function toMinutes(seconds) {
 }
 function playAudio() {
   if (!isPlaying) {
+    if (audio.volume == 0) {
+      audio.volume = 0.5;
+    }
     audio.src = shuffledAudios[currIndex].src;
     audio.currentTime = playingTime;
     audio.play();
