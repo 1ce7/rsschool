@@ -403,10 +403,14 @@ ul {
 
 html {
   font-size: 10px;
+  height: 100%;
 }
 
 body {
   font-size: 3rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 img {
@@ -426,8 +430,12 @@ p {
   margin: 0;
 }
 
+main {
+  height: 100%;
+}
+
 .wrapper {
-  max-width: 90vw;
+  width: 70vw;
   margin: 0 auto;
 }
 
@@ -436,8 +444,6 @@ p {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: top center;
-  position: absolute;
-  width: 100%;
   height: 100%;
   display: flex;
 }
@@ -506,6 +512,33 @@ p {
   display: flex;
   align-items: center;
   padding: 0;
+}
+
+.footer {
+  background: hsl(0, 0%, 100%);
+  color: black;
+  margin-top: auto;
+  background: hsla(219, 80%, 52%, 0.95);
+  font-family: "Roboto", sans-serif;
+}
+.footer svg {
+  width: 80px;
+  height: 80px;
+}
+.footer .wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 4rem;
+  margin: 0 auto;
+}
+.footer__github a {
+  display: flex;
+  align-items: center;
+}
+.footer__rss-logo svg {
+  display: flex;
+  align-items: center;
 }
 
 /*# sourceMappingURL=style.css.map */

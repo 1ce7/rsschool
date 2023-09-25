@@ -86,7 +86,7 @@
     "wildcard": "^2.0.1"
   },
   "scripts": {
-    "style": "sass --watch src/sass/style.css src/sass/style.scss",
+    "style": "sass --watch src/sass/style.scss src/sass/style.css",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
