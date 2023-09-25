@@ -43,25 +43,31 @@ const audios = [
     duration: 157.022041,
   },
 ]
+
 function renderAudioList(audios, parentElement) {
   const audioList = document.createElement("ul");
   audioList.classList.add('audio-player__audio-list');
   audios.forEach((audio, index) => {
     const audioListItem = document.createElement("li");
     audioListItem.classList.add('audio-player__audio-list-item');
+    const audioListName = document.createElement('span');
+    audioListName.classList.add('audio-player__audio-list-item-name');
+    const audioListTime = document.createElement('span');
+    audioListTime.classList.add('audio-player__audio-list-item-time');
     if (index === 0) {
       audioListItem.classList.add('active-audio-info');
     }
-    audioListItem.innerHTML = `
-      <span class="audio-player__audio-list-item-name">${audio.name} - ${audio.author}</span>
-      <span class="audio-player__audio-list-item-time">${toMinutes(audio.duration)}</span>
-    `;
+    audioListName.innerText = `${audio.name} - ${audio.author}`;
+    audioListItem.appendChild(audioListName);
+    audioListTime.innerText = toMinutes(audio.duration);
+    audioListItem.appendChild(audioListTime);
     audioList.appendChild(audioListItem);
   });
   parentElement.appendChild(audioList);
 }
 const audioInfo = document.querySelector('.audio-player__audio-info');
 renderAudioList(audios, audioInfo);
+
 const audioListItems = document.querySelectorAll(".audio-player__audio-list-item");
 const audioPlayer = document.querySelector(".audio-player");
 const playBtn = document.querySelector(".play-button");
@@ -72,9 +78,11 @@ const repeatBtn = document.querySelector(".repeat-button");
 const shuffleBtn = document.querySelector(".shuffle-button");
 const audioName = document.querySelector(".audio-player__audio-name");
 const audioImage = document.querySelector('.audio-player__audio-image img');
-const audioListTime = document.querySelector('.audio-player__audio-list-item-time');
 const audioListTimes = document.querySelectorAll('.audio-player__audio-list-item-time');
-const audioListNames = document.querySelectorAll('.audio-player__audio-list-item-name')
+const audioListNames = document.querySelectorAll('.audio-player__audio-list-item-name');
+const audioCurrentTimeline = document.querySelector('.audio-player__audio-current-timeline');
+const audioTimeline = document.querySelector('.audio-player__audio-timeline');
+const audioTimelineBox = document.querySelector('.audio-player__audio-timeline-box');
 
 let currIndex = 0;
 let shuffledAudios = [...audios];
@@ -82,6 +90,7 @@ let isShuffle = false;
 let isPlaying = false;
 let playingTime = 0;
 let currAudio = shuffledAudios[currIndex];
+audio.src = shuffledAudios[currIndex].src;
 
 function toMinutes(seconds) {
   return `${Math.floor(seconds / 60)
@@ -128,7 +137,6 @@ function playPrev() {
 function changeIcon(iconEl, from, to) {
   iconEl.getAttribute('href') === from ? iconEl.setAttribute('href', to) : iconEl.setAttribute('href', from);
 }
-
 function shuffleArray(arr) {
   const shuffledArr = [...arr]; // Создаем копию исходного массива
   for (let i = shuffledArr.length - 1; i > 0; i--) {
@@ -136,6 +144,21 @@ function shuffleArray(arr) {
     [shuffledArr[i], shuffledArr[j]] = [shuffledArr[j], shuffledArr[i]]; // Меняем местами элементы
   }
   return shuffledArr;
+}
+function updateAudioInfo() {
+  shuffledAudios.forEach((audio, index) => {
+    audioListNames[index].innerText = `${audio.name} - ${audio.author}`;
+    if (audio !== currAudio) {
+      audioListTimes[index].innerText = toMinutes(audio.duration);
+    }
+  });
+  audioListItems.forEach((item) => {
+    item.classList.remove('active-audio-info');
+  });
+  audioListItems[currIndex].classList.add('active-audio-info'); // вынести в функцию
+  audioPlayer.style.backgroundImage = `url(${currAudio.cover})`;
+  audioImage.setAttribute('src', currAudio.cover);
+  audioName.innerText = currAudio.name;
 }
 
 playBtn.addEventListener("click", (event) => {
@@ -161,7 +184,6 @@ repeatBtn.addEventListener("click", (event) => {
   changeIcon(btnIcon, '#repeat', '#repeatOne')
   audio.loop = !audio.loop;
 });
-
 shuffleBtn.addEventListener("click", () => {
     isShuffle = false;
     [shuffledAudios[0], shuffledAudios[currIndex]] = [shuffledAudios[currIndex], shuffledAudios[0]];
@@ -178,48 +200,24 @@ shuffleBtn.addEventListener("click", () => {
     currIndex = 0;
     shuffledAudios = [shuffledAudios[0], ...shuffledPart];
     console.log(shuffledAudios);
-    shuffledAudios.forEach((audio, index) => {
-      audioListNames[index].innerText = `${audio.name} - ${audio.author}`;
-      if (audio !== currAudio) {
-        audioListTimes[index].innerText = toMinutes(audio.duration);
-      }
-    });
-    audioListItems.forEach((item) => {
-      item.classList.remove('active-audio-info');
-    });
-    audioListItems[currIndex].classList.add('active-audio-info'); // вынести в функцию
-    audioPlayer.style.backgroundImage = `url(${currAudio.cover})`;
-    audioImage.setAttribute('src', currAudio.cover);
-    audioName.innerText = currAudio.name;
+    updateAudioInfo()
 });
 audio.addEventListener('play', () => {
-  audioListItems.forEach((item) => {
-    item.classList.remove('active-audio-info');
-  });
-  shuffledAudios.forEach((audio, index) => {
-    if (audio !== currAudio) {
-      audioListTimes[index].innerText = toMinutes(audio.duration);
-    }
-  });
-  audio.addEventListener('timeupdate', () => {
-    audioListItems[currIndex].querySelector('.audio-player__audio-list-item-time').innerText = toMinutes(audio.currentTime);
-  });
-  audioListItems[currIndex].classList.add('active-audio-info');
-  audioPlayer.style.backgroundImage = `url(${currAudio.cover})`;
-  audioImage.setAttribute('src', currAudio.cover);
-  audioName.innerText = currAudio.name;
+  updateAudioInfo()
 });
-
 audio.addEventListener("ended", () => {
   audio.loop ? (audio.currentTime = 0, audio.play()) : playNext();
 });
-
-// audio.addEventListener('pause', (event) => {
-//   audioListItems.forEach((item) => {
-//     item.classList.remove('active-audio-info');
-//   });
-//   audioListItems[currIndex].classList.add('active-audio-info');
-//   audioPlayer.style.backgroundImage = `url(${currAudio.cover})`;
-//   audioImage.setAttribute('src', currAudio.cover);
-//   audioName.innerText = currAudio.name;
-// });
+audio.addEventListener('timeupdate', () => {
+  audioListItems[currIndex].querySelector('.audio-player__audio-list-item-time').innerText = toMinutes(audio.currentTime);
+  audioCurrentTimeline.style.width = audio.currentTime / audio.duration * 100 + '%';
+});
+audioTimelineBox.addEventListener('click', (event) => {
+  isPlaying = true;
+  playBtn.children[0].children[0].setAttribute('href', '#pause');
+  audio.play();
+  const timelineWidth = audioTimeline.offsetWidth;
+  const clickX = event.clientX - audioTimeline.offsetLeft;
+  const clickTime = (clickX / timelineWidth) * audio.duration;
+  audio.currentTime = clickTime;
+});

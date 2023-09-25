@@ -9,11 +9,12 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin: 5px;
+    height: 60px;
   }
   &__controls {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     flex-wrap: wrap;
     & svg {
       width: 40px;
@@ -31,17 +32,33 @@
   }
   &__audio-name {
     font-size: 2.5rem;
+    margin: 0 5px;
   }
-
+  & button {
+    height: 50px;
+    padding: 5px;
+  }
+  &__audio-timeline-box {
+    padding: 6px 0 8px 0;
+    display: flex;
+  }
+  &__audio-timeline-box:hover {
+    cursor: pointer;
+  }
   &__audio-timeline {
     width: 270px;
-    height: 5px;
     background: white;
-
+  }
+  &__audio-timeline:hover {
+    cursor: pointer;
+  }
+  &__audio-current-timeline {
+    height: 10px;
+    background: black;
   }
   &__audio-volume {
     margin: 5px;
-    width: 5px;
+    width: 10px;
     height: 50px;
     background: white;
     flex-shrink: 0;
@@ -54,7 +71,7 @@
     display: flex;
   }
   & .wrapper {
-    background: hsla(219, 80%, 52%, 0.95);
+    background: hsla(216, 80%, 52%, 0.95);
     border-radius: 10px;
     margin: auto;
     padding: 15px 20px;
