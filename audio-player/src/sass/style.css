@@ -510,7 +510,7 @@ main {
 }
 .audio-player__audio-current-volume .audio-player__progress-bar-slider {
   margin-left: -2px;
-  margin-top: -1px;
+  margin-top: -4px;
 }
 .audio-player__audio-volume {
   height: 50px;

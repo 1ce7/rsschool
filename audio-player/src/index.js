@@ -218,10 +218,16 @@ audio.addEventListener('play', () => {
 audio.addEventListener("ended", () => {
   audio.loop ? (audio.currentTime = 0, audio.play()) : playNext();
 });
+
+function updateCurrentTimelineWidth() {
+  audioCurrentTimeline.style.width = audio.currentTime / audio.duration * 100 + '%';
+}
 audio.addEventListener('timeupdate', () => {
   audioListItems[currIndex].querySelector('.audio-player__audio-list-item-time').innerText = toMinutes(audio.currentTime);
-  audioCurrentTimeline.style.width = audio.currentTime / audio.duration * 100 + '%';
 });
+audio.addEventListener('timeupdate', updateCurrentTimelineWidth);
+
+
 
 audioTimelineBox.addEventListener('click', (event) => {
   isPlaying = true;
@@ -239,11 +245,13 @@ document.addEventListener('mousemove', (event) => {
   if (timelineSliderIsDragging) {
     const timelineWidth = audioTimeline.offsetWidth;
     const clickX = event.clientX - audioTimeline.offsetLeft;
-    audio.currentTime = (clickX / timelineWidth) * audio.duration;
+    audio.removeEventListener('timeupdate', updateCurrentTimelineWidth);
+    audioCurrentTimeline.style.width = clickX / timelineWidth * 100 + '%';
   }
 });
 document.addEventListener('mouseup', () => {
   timelineSliderIsDragging = false;
+  audio.addEventListener('timeupdate', updateCurrentTimelineWidth);
 });
 
 audio.addEventListener('volumechange', () => {
@@ -262,7 +270,9 @@ document.addEventListener('mousemove', (event) => {
   if (volumeSliderIsDragging) {
     const volumeHeight = audioVolume.offsetHeight;
     const clickY = volumeHeight - (event.clientY - audioVolume.offsetTop);
-    audio.volume = clickY / volumeHeight;
+    const volumePercentage = clickY / volumeHeight;
+    const volume = Math.max(0, Math.min(1, volumePercentage));
+    audio.volume = volume;
   }
 });
 document.addEventListener('mouseup', () => {
