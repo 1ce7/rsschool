@@ -86,6 +86,8 @@ const audioTimelineBox = document.querySelector('.audio-player__audio-timeline-b
 const audioCurrentVolume = document.querySelector('.audio-player__audio-current-volume');
 const audioVolume = document.querySelector('.audio-player__audio-volume');
 const audioVolumeBox = document.querySelector('.audio-player__audio-volume-box');
+const audioTimelineSlider = document.querySelector('.audio-player__audio-current-timeline .audio-player__progress-bar-slider')
+const audioVolumeSlider = document.querySelector('.audio-player__audio-current-volume .audio-player__progress-bar-slider')
 
 let currIndex = 0;
 let shuffledAudios = [...audios];
@@ -220,22 +222,49 @@ audio.addEventListener('timeupdate', () => {
   audioListItems[currIndex].querySelector('.audio-player__audio-list-item-time').innerText = toMinutes(audio.currentTime);
   audioCurrentTimeline.style.width = audio.currentTime / audio.duration * 100 + '%';
 });
+
 audioTimelineBox.addEventListener('click', (event) => {
   isPlaying = true;
   playBtn.children[0].children[0].setAttribute('href', '#pause');
   audio.play();
   const timelineWidth = audioTimeline.offsetWidth;
   const clickX = event.clientX - audioTimeline.offsetLeft;
-  const clickTime = (clickX / timelineWidth) * audio.duration;
-  audio.currentTime = clickTime;
+  audio.currentTime = (clickX / timelineWidth) * audio.duration;
+});
+let timelineSliderIsDragging = false;
+audioTimelineSlider.addEventListener('mousedown', (event) => {
+  timelineSliderIsDragging = true;
+});
+document.addEventListener('mousemove', (event) => {
+  if (timelineSliderIsDragging) {
+    const timelineWidth = audioTimeline.offsetWidth;
+    const clickX = event.clientX - audioTimeline.offsetLeft;
+    audio.currentTime = (clickX / timelineWidth) * audio.duration;
+  }
+});
+document.addEventListener('mouseup', () => {
+  timelineSliderIsDragging = false;
+});
+
+audio.addEventListener('volumechange', () => {
+  audioCurrentVolume.style.height = audio.volume * 100 + '%';
 });
 audioVolumeBox.addEventListener('click', (event) => {
   const volumeHeight = audioVolume.offsetHeight;
   const clickY = volumeHeight - (event.clientY - audioVolume.offsetTop);
-  const volumePercentage = (clickY / volumeHeight) * 100;
-  const volume = volumePercentage / 100;
-  audio.volume = volume;
+  audio.volume = clickY / volumeHeight;
 });
-audio.addEventListener('volumechange', () => {
-  audioCurrentVolume.style.height = audio.volume * 100 + '%';
+let volumeSliderIsDragging = false;
+audioVolumeSlider.addEventListener('mousedown', (event) => {
+  volumeSliderIsDragging = true;
+});
+document.addEventListener('mousemove', (event) => {
+  if (volumeSliderIsDragging) {
+    const volumeHeight = audioVolume.offsetHeight;
+    const clickY = volumeHeight - (event.clientY - audioVolume.offsetTop);
+    audio.volume = clickY / volumeHeight;
+  }
+});
+document.addEventListener('mouseup', () => {
+  volumeSliderIsDragging = false;
 });

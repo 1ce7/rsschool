@@ -487,6 +487,7 @@ main {
   cursor: pointer;
 }
 .audio-player__audio-timeline {
+  display: flex;
   width: 270px;
   background: white;
 }
@@ -494,9 +495,22 @@ main {
   cursor: pointer;
 }
 .audio-player__audio-current-timeline {
-  height: 10px;
+  height: 4px;
   background: black;
-  width: 0%;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+}
+.audio-player__progress-bar-slider {
+  margin-right: -3px;
+  background: hsl(216, 100%, 77%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.audio-player__audio-current-volume .audio-player__progress-bar-slider {
+  margin-left: -2px;
+  margin-top: -1px;
 }
 .audio-player__audio-volume {
   height: 50px;
@@ -505,11 +519,12 @@ main {
   align-items: end;
 }
 .audio-player__audio-current-volume {
-  width: 10px;
+  width: 4px;
   background: black;
 }
 .audio-player__audio-volume-box {
   padding: 0 5px;
+  display: flex;
   flex-shrink: 0;
 }
 .audio-player__audio-volume-box:hover {
