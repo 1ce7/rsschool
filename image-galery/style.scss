@@ -1,0 +1,97 @@
+@import "normalize";
+html {
+  font-size: 20px;
+}
+body {
+  background: #FDCD60;
+  font-size: 1.6rem;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.main {
+  flex: 1;
+}
+input {
+  border: none;
+}
+input:focus {
+  outline: none;
+}
+.wrapper {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+.header {
+  // background-image: repeating-radial-gradient(circle at 0 0,transparent 0,#e5e5f7 10px),repeating-linear-gradient(#60A0FD,#60A0FD);
+  background: #60A0FD;
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__logo {
+    display: flex;
+  }
+  &__search-images-box {
+    padding: 0 10px;
+    display: inline-flex;
+    background-color: #FDCD60;
+    align-items: center;
+    border-radius: 5px;
+    margin: 20px;
+    #search-images-box-input::placeholder {
+      // color: #60A0FD;
+      color: #000;
+    }
+    #search-images-box-input {
+      color: #000;
+      background-color: #FDCD60;
+    }
+  }
+}
+.icon {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  background-repeat: no-repeat;
+  &.camera-icon {
+    width: 120px;
+    height: 120px;
+    background-image: url(icons/camera2.svg);
+  }
+  &.loupe-icon {
+    background-image: url(icons/loupe2.svg);
+  }
+  &.loupe-icon:hover {
+    cursor: pointer;
+    filter: invert(57%) sepia(18%) saturate(7433%) hue-rotate(199deg) brightness(110%) contrast(98%);
+  }
+  &.github-icon {
+    width: 80px;
+    height: 80px;
+    background-image: url(icons/github.svg);
+  }
+  &.rss-icon {
+    margin-bottom: -15px;
+    width: 100px;
+    height: 100px;
+    background-image: url(icons/rsschool.svg);
+  }
+  &.year-icon {
+    height: 106px;
+    width: 127px;
+    background-image: url(icons/year.png);
+  }
+}
+.footer {
+  background: #60A0FD;
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 0 20px 20px 20px;
+    a {
+      display: flex;
+    }
+  }
+}
