@@ -4,24 +4,30 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
-  <title>image-gallery</title>
+  <link rel="icon" href="icons/camera1.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Young+Serif&display=swap" rel="stylesheet">
+  <title>Image-gallery</title>
 </head>
 <body>
   <header class="header">
     <div class="wrapper header__wrapper">
       <div class="header__logo">
         <span class="icon camera-icon"></span>
+        <h1>Image-gallery</h1>
       </div>
-      <div class="header__search-images-box">
-        <input id="search-images-box-input" type="text" placeholder="Search...">
-        <span class="icon loupe-icon"></span>
-      </div>
+      <form class="header__search-form">
+        <input class="search-form-input" type="text" placeholder="Search...">
+        <button type="submit" class="search-form-btn">
+          <span class="icon loupe-icon"></span>
+        </button>
+      </form>
     </div>
   </header>
   <main class="main">
-    <div class="wrapper">
-      <div class="grid">
-      </div>
+    <div class="wrapper main__wrapper">
+      <div class="main__image-container image-container"></div>
     </div>
   </main>
   <footer class="footer">
@@ -35,5 +41,6 @@
       </a>
     </div>
   </footer>
+  <script src="index.js"></script>
 </body>
 </html>
