@@ -413,6 +413,11 @@ body {
   font-family: "Caveat", "Roboto", sans-serif;
   font-weight: 600;
   font-size: 1.6rem;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #1E3B71;
 }
 
 input {
@@ -429,9 +434,6 @@ input:focus {
   padding: 0 20px;
 }
 
-.main {
-  background-color: #1E3B71;
-}
 .main__wrapper {
   padding: 20px;
 }
@@ -496,6 +498,11 @@ input:focus {
   width: 64px;
   background-image: url(icons/year.png);
 }
+.icon.x-icon {
+  width: 20px;
+  height: 20px;
+  background-image: url(icons/x.svg);
+}
 
 .footer {
   background: #60A0FD;
@@ -529,11 +536,11 @@ input:focus {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 15px;
 }
 .image-container .image-box {
-  width: 440px;
-  height: 440px;
+  width: 420px;
+  height: 420px;
   display: flex;
 }
 .image-container .image {
