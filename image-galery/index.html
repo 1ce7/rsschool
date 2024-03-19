@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="icons/camera1.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Young+Serif&display=swap" rel="stylesheet">
+  <title>Image-gallery</title>
+</head>
+<body>
+  <header class="header">
+    <div class="wrapper header__wrapper">
+      <div class="header__logo">
+        <span class="icon camera-icon"></span>
+        <h1>Image-gallery</h1>
+      </div>
+      <form class="header__search-form">
+        <input class="search-form-input" type="text" placeholder="Search...">
+        <div class="search-form-btn clear-btn">
+          <span  class="icon x-icon"></span>
+        </div>
+        <button type="submit" class="search-form-btn submit-btn">
+          <span class="icon loupe-icon"></span>
+        </button>
+      </form>
+    </div>
+  </header>
+  <main class="main">
+    <div class="wrapper main__wrapper">
+      <div class="main__image-container image-container"></div>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="wrapper footer__wrapper">
+      <a href="https://github.com/1ce7" class="github-link">
+        <span class="icon github-icon"></span>
+      </a>
+      <span class="icon year-icon"></span>
+      <a href="https://rs.school" class="rss-link">
+        <span class="icon rss-icon"></span>
+      </a>
+    </div>
+  </footer>
+  <script src="index.js"></script>
+</body>
+</html>

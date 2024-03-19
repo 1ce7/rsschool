@@ -1,0 +1,139 @@
+@import "normalize";
+@font-face {
+  font-family: 'Caveat';
+  src: url('fonts/Caveat/Caveat-VariableFont_wght.ttf'), format('ttf');
+}
+html {
+  font-size: 10px;
+}
+body {
+  font-family: 'Caveat', 'Roboto', sans-serif;
+  font-weight: 600;
+  font-size: 1.6rem;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #1E3B71;
+}
+input {
+  border: none;
+}
+input:focus {
+  outline: none;
+}
+.wrapper {
+  margin: 0 auto;
+  max-width: 1400px;
+  padding: 0 20px;
+}
+.main {
+  &__wrapper {
+    padding: 20px;
+  }
+}
+.header {
+  // background-image: repeating-radial-gradient(circle at 0 0,transparent 0,#e5e5f7 10px),repeating-linear-gradient(#60A0FD,#60A0FD);
+  background: #60A0FD;
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__logo {
+    display: flex;
+  }
+  &__search-form {
+    padding: 0 10px;
+    display: inline-flex;
+    background-color: #FDCD60;
+    align-items: center;
+    border-radius: 5px;
+    margin: 25px 10px;
+    .search-form-input::placeholder {
+      color: #000;
+    }
+    .search-form-input {
+      width: 200px;
+      color: #000;
+      background-color: #FDCD60;
+    }
+  }
+}
+.icon {
+  display: flex;
+  width: 40px;
+  height: 40px;
+  background-repeat: no-repeat;
+  &.camera-icon {
+    width: 80px;
+    height: 80px;
+    background-image: url(icons/camera2.svg);
+  }
+  &.loupe-icon {
+    width: 20px;
+    height: 20px;
+    background-image: url(icons/loupe2.svg);
+  }
+  &.github-icon {
+    width: 60px;
+    height: 60px;
+    background-image: url(icons/github2.svg);
+  }
+  &.rss-icon {
+    margin-bottom: -5px;
+    margin-left: -5px;
+    width: 60px;
+    height: 60px;
+    background-image: url(icons/rsschool.svg);
+  }
+  &.year-icon {
+    height: 64px;
+    width: 64px;
+    background-image: url(icons/year.png);
+  }
+  &.x-icon {
+    width: 20px;
+    height: 20px;
+    background-image: url(icons/x.svg);
+  }
+}
+.footer {
+  background: #60A0FD;
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 8px 20px;
+    a {
+      display: flex;
+    }
+  }
+}
+.github-link {
+  margin-bottom: -3px;
+}
+.search-form-btn {
+  border: 0;
+  padding: 5px;
+  background: transparent;
+}
+.search-form-btn:hover {
+  cursor: pointer;
+  filter: invert(57%) sepia(18%) saturate(7433%) hue-rotate(199deg) brightness(110%) contrast(98%);
+}
+.image-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  .image-box {
+    width: 420px;
+    height: 420px;
+    display: flex;
+  }
+  .image {
+    width: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+}
