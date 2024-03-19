@@ -1,0 +1,120 @@
+.audio-player {
+  background-image: url(../assets/img/maxresdefault.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+  height: 100%;
+  display: flex;
+  &__name-timeline {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 60px;
+  }
+  &__controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    & svg {
+      width: 40px;
+      height: 40px;
+      fill: #000;
+    }
+    & svg:hover {
+
+    }
+  }
+  &__audio-image {
+    flex-shrink: 0;
+    width: 70px;
+    height: 60px;
+  }
+  &__audio-name {
+    font-size: 2.5rem;
+    margin: 0 5px;
+  }
+  & button {
+    height: 50px;
+    padding: 5px;
+  }
+  &__audio-timeline-box {
+    padding: 6px 0 8px 0;
+    display: flex;
+    margin: 0 5px;
+  }
+  &__audio-timeline-box:hover {
+    cursor: pointer;
+  }
+  &__audio-timeline {
+    display: flex;
+    width: 270px;
+    background: white;
+  }
+  &__audio-timeline:hover {
+    cursor: pointer;
+  }
+  &__audio-current-timeline {
+    height: 4px;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+  }
+  &__progress-bar-slider {
+    margin-right: -3px;
+    background:  hsl(216, 100%, 77%);
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+  &__audio-current-volume &__progress-bar-slider {
+    margin-left: -2px;
+    margin-top: -4px;
+  }
+  &__audio-volume {
+    height: 50px;
+    background: white;
+    display: flex;
+    align-items: end;
+  }
+  &__audio-current-volume {
+    width: 4px;
+    background: black;
+    // justify-content: center;
+    // display: flex;
+  }
+  &__audio-volume-box {
+    padding: 0 5px;
+    display: flex;
+    flex-shrink: 0;
+  }
+  &__audio-volume-box:hover {
+    cursor: pointer;
+  }
+  & .flex-column {
+    flex-shrink: 1;
+    justify-content: space-between;
+  }
+  &__audio-visualization {
+    display: flex;
+  }
+  & .wrapper {
+    background: hsla(216, 80%, 52%, 0.95);
+    border-radius: 10px;
+    margin: auto;
+    padding: 15px 20px;
+  }
+  &__audio-list {
+    margin: 0 0 20px 0;
+  }
+
+  &__audio-list-item {
+    margin: 10px 0;
+    padding: 5px 10px;
+    background: hsl(219deg 86% 78% / 50%);
+    border-bottom: solid 2px black;
+    display: flex;
+    justify-content: space-between;
+  }
+}

@@ -1,0 +1,25 @@
+.footer {
+  background: hsl(0, 0%, 100%);
+  color: black;
+  margin-top: auto;
+  background: hsla(219, 80%, 52%, 0.95);
+  & svg {
+    width: 80px;
+    height: 5vw;
+  }
+  & .wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 2.5rem;
+    margin: 0 auto;
+  }
+  &__github a {
+    display: flex;
+    align-items: center;
+  }
+  &__rss-logo svg {
+    display: flex;
+    align-items: center;
+  }
+}
